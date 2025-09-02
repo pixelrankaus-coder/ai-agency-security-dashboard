@@ -1,3 +1,6 @@
+import * as React from "react";
+import { Check, UserPlusIcon } from "lucide-react";
+
 import {
   Dialog,
   DialogContent,
@@ -15,9 +18,7 @@ import {
   CommandList
 } from "@/components/ui/command";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Check, UserPlusIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import * as React from "react";
 
 const users = [
   {
