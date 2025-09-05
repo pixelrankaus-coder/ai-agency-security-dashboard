@@ -77,12 +77,12 @@ const appointments = [
   }
 ];
 
-export function UpcomingAppointments() {
+export default function UpcomingAppointments() {
   return (
     <Card className="col-span-4">
       <CardHeader>
         <CardTitle>Upcoming Appointments</CardTitle>
-        <CardAction>
+        <CardAction className="-mt-2.5">
           <div className="flex gap-2">
             <ExportButton />
             <Button variant="outline">

@@ -1,8 +1,16 @@
-import { FileText, Video, File, ImageIcon } from "lucide-react";
+import { FileText, Video, File, ImageIcon, ArrowRightIcon } from "lucide-react";
 
-import { Card, CardAction, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardAction,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle
+} from "@/components/ui/card";
 import CountAnimation from "@/components/ui/custom/count-animation";
 import { Progress } from "@/components/ui/progress";
+import Link from "next/link";
 
 interface DataType {
   type: string;
@@ -55,9 +63,9 @@ const data: DataType[] = [
 
 export function SummaryCards() {
   return (
-    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+    <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
       {data.map((item, key) => (
-        <Card key={key}>
+        <Card key={key} className="pb-0">
           <CardHeader>
             <CardTitle>{item.type}</CardTitle>
             <CardAction>
@@ -69,13 +77,20 @@ export function SummaryCards() {
               <CountAnimation number={item.count} />
             </div>
             <div className="space-y-2">
-              <div className="text-muted-foreground text-sm">{item.size} used</div>
               <Progress value={item.usagePercentage} indicatorColor={item.indicatorColor} />
-              <div className="text-muted-foreground text-sm">
-                {item.usagePercentage}% of storage used
+              <div className="flex items-center justify-between">
+                <span className="text-muted-foreground text-sm">{item.size} used</span>
+                <span className="text-muted-foreground text-sm">{item.usagePercentage}%</span>
               </div>
             </div>
           </CardContent>
+          <CardFooter className="border-border flex items-center justify-end border-t p-0!">
+            <Link
+              href="#"
+              className="text-primary hover:text-primary/90 flex items-center px-6 py-3 text-sm font-medium">
+              View more <ArrowRightIcon className="ms-1 size-4" />
+            </Link>
+          </CardFooter>
         </Card>
       ))}
     </div>

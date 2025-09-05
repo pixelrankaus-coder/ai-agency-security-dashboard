@@ -17,6 +17,7 @@ import {
 } from "@/app/dashboard/(auth)/ecommerce/components";
 import CustomDateRangePicker from "@/components/custom-date-range-picker";
 import { Download } from "lucide-react";
+import StatCards from "@/app/dashboard/(auth)/ecommerce/components/stat-cards";
 
 export async function generateMetadata() {
   return generateMeta({
@@ -43,9 +44,9 @@ export default function Page() {
       <div className="space-y-4">
         <div className="grid gap-4 lg:grid-cols-12">
           <EcommerceWelcomeCard />
-          <EcommerceRevenueCard />
-          <EcommerceSalesCard />
-          <EcommerceNewCustomersCard />
+          <div className="md:col-span-12 lg:col-span-8">
+            <StatCards />
+          </div>
         </div>
         <div className="space-y-4 xl:grid xl:grid-cols-2 xl:gap-4 xl:space-y-0">
           <EcommerceTotalRevenueCard />

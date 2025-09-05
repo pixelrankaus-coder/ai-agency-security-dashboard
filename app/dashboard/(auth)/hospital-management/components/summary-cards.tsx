@@ -3,11 +3,11 @@ import { CalendarIcon, CreditCardIcon, DollarSignIcon, UsersIcon } from "lucide-
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import CountAnimation from "@/components/ui/custom/count-animation";
 
-export function SummaryCards() {
+export default function SummaryCards() {
   return (
     <div className="overflow-hidden rounded-md border">
-      <div className="grid md:grid-cols-2 lg:grid-cols-4">
-        <Card className="hover:bg-muted rounded-none border-y-transparent border-s-transparent transition-colors">
+      <div className="grid divide-y-1! md:grid-cols-2 md:divide-x-1! lg:grid-cols-4 lg:divide-y-0! [&>*:nth-child(2)]:border-e-0! md:[&>*:nth-child(2)]:border-e-0! lg:[&>*:nth-child(2)]:border-e-1!">
+        <Card className="hover:bg-muted rounded-none border-0 transition-colors">
           <CardHeader className="relative flex flex-row items-center justify-between space-y-0">
             <CardTitle>Total Appointments</CardTitle>
             <div className="absolute end-4 top-0 flex size-12 items-center justify-center rounded-full bg-indigo-200 p-4 dark:bg-indigo-950">
@@ -23,7 +23,7 @@ export function SummaryCards() {
             </p>
           </CardContent>
         </Card>
-        <Card className="hover:bg-muted rounded-none border-y-transparent border-s-transparent transition-colors">
+        <Card className="hover:bg-muted rounded-none border-0 transition-colors">
           <CardHeader className="relative flex flex-row items-center justify-between space-y-0">
             <CardTitle>New Patients</CardTitle>
             <div className="absolute end-4 top-0 flex size-12 items-end justify-start rounded-full bg-green-200 p-4 dark:bg-green-950">
@@ -39,7 +39,7 @@ export function SummaryCards() {
             </p>
           </CardContent>
         </Card>
-        <Card className="hover:bg-muted rounded-none border-y-transparent border-s-transparent transition-colors">
+        <Card className="hover:bg-muted rounded-none border-0 transition-colors">
           <CardHeader className="relative flex flex-row items-center justify-between space-y-0">
             <CardTitle>Operations</CardTitle>
             <div className="absolute end-4 top-0 flex size-12 items-end justify-start rounded-full bg-purple-200 p-4 dark:bg-purple-950">
@@ -55,7 +55,7 @@ export function SummaryCards() {
             </p>
           </CardContent>
         </Card>
-        <Card className="hover:bg-muted rounded-none border-transparent transition-colors">
+        <Card className="hover:bg-muted rounded-none border-0 transition-colors">
           <CardHeader className="relative flex flex-row items-center justify-between space-y-0">
             <CardTitle>Total Revenue</CardTitle>
             <div className="absolute end-4 top-0 flex size-12 items-end justify-start rounded-full bg-orange-200 p-4 dark:bg-orange-950">

@@ -52,7 +52,7 @@ export function ChartFileTransfer() {
       <CardHeader className="grid-cols-1">
         <CardTitle>Monthly File Transfer</CardTitle>
         <CardDescription>Last 28 days</CardDescription>
-        <CardAction className="relative">
+        <CardAction className="relative -mt-2.5">
           <div className="end-0 top-0 md:absolute">
             <CalendarDateRangePicker />
           </div>

@@ -47,12 +47,12 @@ const patients = [
   }
 ];
 
-export function PatientsWithLastProcedure() {
+export default function PatientsWithLastProcedure() {
   return (
     <Card className="col-span-3">
       <CardHeader className="relative">
         <CardTitle>Patients with Last Procedure</CardTitle>
-        <CardAction>
+        <CardAction className="-mt-2.5">
           <Button variant="outline">
             View All <ChevronRight />
           </Button>
@@ -61,8 +61,8 @@ export function PatientsWithLastProcedure() {
       <CardContent className="pt-4">
         <div className="space-y-6">
           {patients.map((patient) => (
-            <div key={patient.id} className="flex items-center">
-              <Avatar className="size-10">
+            <div key={patient.id} className="flex">
+              <Avatar>
                 <AvatarImage src={patient.avatar} alt="Avatar" />
                 <AvatarFallback>
                   {patient.name

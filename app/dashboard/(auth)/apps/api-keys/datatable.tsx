@@ -257,7 +257,7 @@ export default function ApiKeysDataTable({ data }: { data: ApiKey[] }) {
               <DropdownMenuContent>
                 <DropdownMenuItem>
                   <Download />
-                  Export selected
+                  Export
                 </DropdownMenuItem>
                 <DropdownMenuItem>
                   <Mail />
@@ -267,9 +267,9 @@ export default function ApiKeysDataTable({ data }: { data: ApiKey[] }) {
                   <Tag />
                   Tag payments
                 </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <Trash2 />
-                  Delete selected
+                <DropdownMenuItem className="text-red-600!">
+                  <Trash2 className="text-red-600!" />
+                  Delete
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
@@ -277,8 +277,8 @@ export default function ApiKeysDataTable({ data }: { data: ApiKey[] }) {
         </div>
         <CreateApiKeyDialog />
       </div>
-      <Card>
-        <CardContent>
+      <Card className="gap-0 p-0">
+        <CardContent className="p-0">
           <Table>
             <TableHeader>
               {table.getHeaderGroups().map((headerGroup) => (

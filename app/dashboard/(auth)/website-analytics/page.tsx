@@ -13,6 +13,7 @@ import {
   TotalEarningCard,
   MonthlyCampaignStateCard
 } from "@/app/dashboard/(auth)/website-analytics/components";
+import StatCards from "@/app/dashboard/(auth)/website-analytics/components/stat-cards";
 
 export async function generateMetadata() {
   return generateMeta({
@@ -36,6 +37,15 @@ export default function Page() {
         </div>
       </div>
       <div className="grid gap-4 lg:grid-cols-12">
+        <div className="lg:col-span-12">
+          <StatCards />
+        </div>
+        <div className="lg:col-span-12 xl:col-span-8">
+          <EarningReportsCard />
+        </div>
+        <div className="lg:col-span-12 xl:col-span-4">
+          <TicketsCard />
+        </div>
         <div className="lg:col-span-4">
           <WebsiteAnalyticsCard />
         </div>
@@ -44,12 +54,6 @@ export default function Page() {
         </div>
         <div className="lg:col-span-4">
           <SaleOverviewCard />
-        </div>
-        <div className="lg:col-span-12 xl:col-span-8">
-          <EarningReportsCard />
-        </div>
-        <div className="lg:col-span-12 xl:col-span-4">
-          <TicketsCard />
         </div>
         <div className="lg:col-span-4">
           <SalesByCountriesCard />

@@ -39,12 +39,12 @@ const chartConfig = {
   }
 } satisfies ChartConfig;
 
-export function PatientVisitsChart() {
+export default function PatientVisitsChart() {
   return (
     <Card className="col-span-4">
       <CardHeader>
         <CardTitle>Patient Visits by Gender</CardTitle>
-        <CardAction>
+        <CardAction className="-mt-2.5">
           <Select defaultValue="2025">
             <SelectTrigger>
               <SelectValue />

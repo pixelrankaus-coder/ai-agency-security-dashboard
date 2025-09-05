@@ -7,7 +7,35 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 
-export function PlannedCalendar() {
+type AppointmentData = {
+  avatar: string;
+  hour: string;
+  title: string;
+  description: string;
+  status: string;
+  statusColor: "success" | "warning";
+};
+
+const data: AppointmentData[] = [
+  {
+    avatar: "https://bundui-images.netlify.app/avatars/08.png",
+    hour: "10:00-11:00 AM",
+    title: "General Health Check up",
+    description: "Dr. Dianne Philips",
+    status: "active",
+    statusColor: "success"
+  },
+  {
+    avatar: "https://bundui-images.netlify.app/avatars/04.png",
+    hour: "05:00-06:00 PM",
+    title: "Temporary Headache",
+    description: "Dr. Jenny Smith",
+    status: "pending",
+    statusColor: "warning"
+  }
+];
+
+export default function PlannedCalendar() {
   const [date, setDate] = React.useState<Date | undefined>(new Date());
 
   return (
@@ -19,48 +47,36 @@ export function PlannedCalendar() {
           onSelect={setDate}
           today={new Date()}
           defaultMonth={new Date()}
-          className="flex h-full w-full"
-          classNames={{
-            months: "flex w-full flex-col sm:flex-row space-y-4 sm:space-x-4 sm:space-y-0 flex-1",
-            month: "space-y-4 w-full flex flex-col",
-            table: "w-full h-full border-collapse space-y-1",
-            head_row: "h-12",
-            row: "w-full mt-2",
-            cell: "size-9 text-center text-sm p-0 relative [&:has([aria-selected].day-range-end)]:rounded-r-md [&:has([aria-selected].day-outside)]:bg-accent/50 [&:has([aria-selected])]:bg-transparent first:[&:has([aria-selected])]:rounded-l-md last:[&:has([aria-selected])]:rounded-r-md focus-within:relative focus-within:z-20"
-          }}
+          className="w-full!"
+          monthsClassName="w-full"
+          monthClassName="space-y-4 w-full flex flex-col"
+          weekdayClassName="w-full!"
+          weekClassName="w-full!"
+          monthGridClassName="m-0"
+          dayClassName="md:size-10"
+          dayButtonClassName="md:size-12"
         />
       </CardContent>
       <div className="flex flex-col divide-y border-t px-0">
-        <div className="w-full">
-          <div className="flex items-start p-4">
-            <Avatar>
-              <AvatarImage src={`https://bundui-images.netlify.app/avatars/01.png`} />
-              <AvatarFallback>AC</AvatarFallback>
-            </Avatar>
-            <div className="ms-4 space-y-1">
-              <p className="leading-none font-medium">General Health Check up</p>
-              <p className="text-muted-foreground text-sm">Dr. Dianne Philips at 10:00-11:00 AM</p>
+        {data.map((item, i) => (
+          <div className="w-full" key={i}>
+            <div className="flex items-center p-4">
+              <Avatar>
+                <AvatarImage src={item.avatar} />
+                <AvatarFallback>AC</AvatarFallback>
+              </Avatar>
+              <div className="ms-4 space-y-1">
+                <p className="leading-none font-medium">{item.title}</p>
+                <p className="text-muted-foreground text-sm">
+                  {item.description} at {item.hour}
+                </p>
+              </div>
+              <Badge variant={item.statusColor} className="ms-auto capitalize">
+                {item.status}
+              </Badge>
             </div>
-            <Badge variant="success" className="ms-auto">
-              Active
-            </Badge>
           </div>
-        </div>
-        <div className="w-full">
-          <div className="flex items-start p-4">
-            <Avatar>
-              <AvatarImage src={`https://bundui-images.netlify.app/avatars/08.png`} />
-              <AvatarFallback>DE</AvatarFallback>
-            </Avatar>
-            <div className="ms-4 space-y-1">
-              <p className="leading-none font-medium">Temporary Headache</p>
-              <p className="text-muted-foreground text-sm">Dr. Jenny Smith at 05:00-06:00 PM</p>
-            </div>
-            <Badge variant="warning" className="ms-auto">
-              Pending
-            </Badge>
-          </div>
-        </div>
+        ))}
       </div>
     </Card>
   );

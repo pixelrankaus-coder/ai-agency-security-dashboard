@@ -46,11 +46,15 @@ export function EcommerceTotalRevenueCard() {
           <div className="end-0 top-0 mt-2 flex flex-col items-stretch space-y-0 p-0 sm:flex-row lg:absolute lg:mt-0">
             <div className="flex gap-8 rounded-lg border p-4">
               <button className="flex flex-1 flex-col justify-center gap-2 text-left">
-                <span className="text-muted-foreground text-xs">Desktop</span>
+                <span className="text-muted-foreground text-xs tracking-wider uppercase">
+                  Desktop
+                </span>
                 <span className="font-display text-lg leading-none sm:text-2xl">24,828</span>
               </button>
               <button className="flex flex-1 flex-col justify-center gap-2 text-left">
-                <span className="text-muted-foreground text-xs">Mobile</span>
+                <span className="text-muted-foreground text-xs tracking-wider uppercase">
+                  Mobile
+                </span>
                 <span className="font-display text-lg leading-none sm:text-2xl">25,010</span>
               </button>
             </div>

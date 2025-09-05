@@ -1,6 +1,5 @@
 import { ColumnDef } from "@tanstack/react-table";
 
-// Define the type for our sales data
 export type ReportsData = {
   id: string;
   date: string;

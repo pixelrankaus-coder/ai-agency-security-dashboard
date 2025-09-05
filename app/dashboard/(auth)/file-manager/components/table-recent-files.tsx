@@ -103,7 +103,7 @@ export function TableRecentFiles() {
     <Card>
       <CardHeader className="relative">
         <CardTitle>Recently Uploaded Files</CardTitle>
-        <CardAction className="relative">
+        <CardAction className="relative -mt-2.5">
           <div className="absolute end-0 top-0">
             <Button variant="outline">
               <span className="hidden lg:inline">View All</span>

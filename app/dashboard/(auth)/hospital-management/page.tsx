@@ -1,20 +1,18 @@
 import { generateMeta } from "@/lib/utils";
+import { Download } from "lucide-react";
 
-import CalendarDateRangePicker from "@/components/custom-date-range-picker";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import {
-  SummaryCards,
-  Notes,
-  PlannedCalendar,
-  HospitalReports,
-  PatientVisitsChart,
-  PatientsByDepartmentChart,
-  PatientsWithLastProcedure,
-  UpcomingAppointments
-} from "@/app/dashboard/(auth)/hospital-management/components";
 import CustomDateRangePicker from "@/components/custom-date-range-picker";
 import { Button } from "@/components/ui/button";
-import { Download } from "lucide-react";
+
+import PatientVisitsChart from "./components/patient-visits-chart";
+import PatientsByDepartmentChart from "./components/patients-by-department-chart";
+import UpcomingAppointments from "./components/upcoming-appointments";
+import PatientsWithLastProcedure from "./components/patients-with-last-procedure";
+import Notes from "./components/notes";
+import HospitalReports from "./components/reports";
+import PlannedCalendar from "./components/planned-calendar";
+import SummaryCards from "./components/summary-cards";
 
 export async function generateMetadata() {
   return generateMeta({

@@ -30,5 +30,21 @@
     "created_at": "12 Dec 2022",
     "expired_at": "12 Dec 2023",
     "status": "expired"
+  },
+  {
+    "id": 5,
+    "name": "Staging API Key",
+    "api_key": "7c8b945e-3d2a-4f16-b5c8-2e9d1a3b4c5d",
+    "created_at": "1 Jan 2024",
+    "expired_at": "1 Jan 2025",
+    "status": "active"
+  },
+  {
+    "id": 6,
+    "name": "Test Environment Key",
+    "api_key": "2f5e8d1c-9b4a-4e7d-8f3b-6c5a2d1b9e8f",
+    "created_at": "15 Mar 2024",
+    "expired_at": "15 Mar 2025",
+    "status": "active"
   }
 ]

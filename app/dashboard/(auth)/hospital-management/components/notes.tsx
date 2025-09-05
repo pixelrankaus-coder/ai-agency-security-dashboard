@@ -15,14 +15,16 @@ interface Note {
   text: string;
 }
 
-export function Notes() {
+export default function Notes() {
   const [notes, setNotes] = React.useState<Note[]>([
     { id: 1, date: new Date(2025, 10, 15), text: "Dr. Smith's surgery at 10 AM" },
     { id: 2, date: new Date(2025, 4, 15), text: "Staff meeting at 2 PM" },
     { id: 3, date: new Date(2025, 2, 16), text: "New patient orientation" },
     { id: 4, date: new Date(2025, 1, 16), text: "Inventory check" },
     { id: 5, date: new Date(2025, 2, 15), text: "Staff meeting at 2 PM" },
-    { id: 6, date: new Date(2025, 3, 15), text: "Staff meeting at 2 PM" }
+    { id: 6, date: new Date(2025, 3, 15), text: "Staff meeting at 2 PM" },
+    { id: 7, date: new Date(2025, 5, 20), text: "Annual health checkup" },
+    { id: 8, date: new Date(2025, 6, 25), text: "Dental examination at 3 PM" }
   ]);
   const [newNote, setNewNote] = React.useState("");
 
@@ -46,9 +48,9 @@ export function Notes() {
       <CardContent>
         <div className="divide-y">
           {notes.map((note, key) => (
-            <Link href="#" key={key} className="flex items-center justify-between py-3">
+            <Link href="#" key={key} className="flex items-center justify-between py-3 text-sm">
               <span>{note.text}</span>
-              <span className="text-muted-foreground flex items-center text-sm">
+              <span className="text-muted-foreground flex items-center">
                 <Clock className="me-2 size-4" /> {format(note.date, "MMM d, yyyy")}
               </span>
             </Link>

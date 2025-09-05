@@ -41,7 +41,7 @@ export function CourseProgressByMonth() {
           <CalendarDateRangePicker />
         </CardAction>
       </CardHeader>
-      <ChartContainer className="w-full lg:h-[375px]" config={chartConfig}>
+      <ChartContainer className="w-full lg:h-[430px]" config={chartConfig}>
         <AreaChart
           accessibilityLayer
           data={chartData}
