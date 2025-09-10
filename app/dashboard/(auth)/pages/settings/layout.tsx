@@ -21,7 +21,7 @@ export default function SettingsLayout({ children }: { children: React.ReactNode
           Manage your account settings and set e-mail preferences.
         </p>
       </div>
-      <div className="flex flex-col space-y-4 space-x-4 lg:flex-row lg:space-y-0">
+      <div className="flex flex-col space-y-4 lg:flex-row lg:space-y-0 lg:space-x-4">
         <aside className="lg:w-64">
           <SidebarNav />
         </aside>

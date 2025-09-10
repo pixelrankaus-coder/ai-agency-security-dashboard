@@ -54,7 +54,7 @@ export function SidebarNav() {
   return (
     <Card className="py-0">
       <CardContent className="p-2">
-        <nav className="flex space-y-0.5 space-x-2 lg:flex-col lg:space-x-0">
+        <nav className="flex flex-col space-y-0.5 space-x-2 lg:space-x-0">
           {sidebarNavItems.map((item) => (
             <Button
               key={item.href}
