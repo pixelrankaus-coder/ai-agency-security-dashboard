@@ -69,6 +69,7 @@
     "dotenv": "^16.5.0",
     "embla-carousel-react": "^8.6.0",
     "input-otp": "^1.4.2",
+    "lottie-react": "^2.4.1",
     "lowlight": "^3.3.0",
     "lucide-react": "^0.522.0",
     "marked": "^15.0.12",

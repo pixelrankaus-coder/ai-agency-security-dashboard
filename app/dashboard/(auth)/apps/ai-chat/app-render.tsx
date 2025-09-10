@@ -95,7 +95,7 @@ export default function AppRender() {
           clearInterval(streamIntervalRef.current!);
           setIsStreaming(false);
         }
-      }, 30);
+      }, 5);
     }
   };
 

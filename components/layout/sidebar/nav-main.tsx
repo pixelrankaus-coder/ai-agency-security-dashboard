@@ -178,9 +178,9 @@ export const navItems: NavGroup[] = [
       { title: "AI Chat", href: "/dashboard/apps/ai-chat", icon: BrainIcon },
       {
         title: "AI Chat V2",
-        href: "/dashboard/apps/ai-chat",
+        href: "/dashboard/apps/ai-chat-v2",
         icon: BrainCircuitIcon,
-        isComing: true
+        isNew: true
       },
       {
         title: "Image Generator",

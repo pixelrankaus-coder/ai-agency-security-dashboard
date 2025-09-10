@@ -42,7 +42,7 @@ function Suggestion({
         size={size || "sm"}
         className={cn(
           "w-full cursor-pointer justify-start rounded-xl py-2",
-          "hover:bg-accent",
+          "hover:bg-muted",
           className
         )}
         {...props}>
@@ -62,7 +62,7 @@ function Suggestion({
       size={size || "sm"}
       className={cn(
         "w-full cursor-pointer justify-start gap-0 rounded-xl py-2",
-        "hover:bg-accent",
+        "hover:bg-muted",
         className
       )}
       {...props}>
