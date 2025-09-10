@@ -1,29 +1,18 @@
-"use client";
-
-import * as React from "react";
-
 import { Progress } from "@/components/ui/progress";
-import { Card, CardAction, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 export function CompleteYourProfileCard() {
-  const [progress, setProgress] = React.useState(13);
-
-  React.useEffect(() => {
-    const timer = setTimeout(() => setProgress(66), 500);
-    return () => clearTimeout(timer);
-  }, []);
+  const progressValue = 66;
 
   return (
     <Card>
       <CardHeader>
         <CardTitle>Complete Your Profile</CardTitle>
-        <CardAction>
-          <Badge variant="outline">%66</Badge>
-        </CardAction>
+        <CardDescription></CardDescription>
       </CardHeader>
-      <CardContent>
-        <Progress value={progress} />
+      <CardContent className="flex items-center gap-4">
+        <Progress value={progressValue} />
+        <div className="text-muted-foreground text-sm">%{progressValue}</div>
       </CardContent>
     </Card>
   );

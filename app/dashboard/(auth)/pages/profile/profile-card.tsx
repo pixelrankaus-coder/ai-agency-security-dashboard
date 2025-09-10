@@ -1,6 +1,3 @@
-"use client";
-
-import * as React from "react";
 import { Link2Icon, Mail, MapPin, PhoneCall } from "lucide-react";
 
 import { Card, CardContent } from "@/components/ui/card";
@@ -11,7 +8,6 @@ export function ProfileCard() {
   return (
     <Card className="relative">
       <CardContent>
-        <Badge className="absolute start-4 top-4">Pro</Badge>
         <div className="space-y-12">
           <div className="flex flex-col items-center space-y-4">
             <Avatar className="size-20">
@@ -19,7 +15,9 @@ export function ProfileCard() {
               <AvatarFallback>AH</AvatarFallback>
             </Avatar>
             <div className="text-center">
-              <h5 className="text-xl font-semibold">Anshan Haso</h5>
+              <h5 className="flex items-center gap-2 text-xl font-semibold">
+                Anshan Haso <Badge variant="info">Pro</Badge>
+              </h5>
               <div className="text-muted-foreground text-sm">Project Manager</div>
             </div>
           </div>
@@ -38,23 +36,32 @@ export function ProfileCard() {
             </div>
           </div>
           <div className="flex flex-col gap-y-4">
-            <div className="flex items-center gap-3">
-              <Mail className="text-muted-foreground size-4" /> anshan@gmail.com
+            <div className="flex items-center gap-3 text-sm">
+              <Mail className="text-muted-foreground size-4" /> hello@tobybelhome.com
             </div>
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 text-sm">
               <PhoneCall className="text-muted-foreground size-4" /> (+1-876) 8654 239 581
             </div>
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 text-sm">
               <MapPin className="text-muted-foreground size-4" />
-              New York
+              Canada
             </div>
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 text-sm">
               <Link2Icon className="text-muted-foreground size-4" />
               <a
                 href="https://shadcnuikit.com"
                 className="hover:text-primary hover:underline"
                 target="_blank">
                 https://shadcnuikit.com
+              </a>
+            </div>
+            <div className="flex items-center gap-3 text-sm">
+              <Link2Icon className="text-muted-foreground size-4" />
+              <a
+                href="https://bundui.io/"
+                className="hover:text-primary hover:underline"
+                target="_blank">
+                https://bundui.io/
               </a>
             </div>
           </div>

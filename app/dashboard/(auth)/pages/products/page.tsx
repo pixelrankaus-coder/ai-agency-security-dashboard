@@ -2,14 +2,15 @@ import { promises as fs } from "fs";
 import path from "path";
 import { generateMeta } from "@/lib/utils";
 import Link from "next/link";
-import { PlusCircle } from "lucide-react";
+import { PlusIcon } from "@radix-ui/react-icons";
+import { Metadata } from "next";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardAction, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import ProductList from "@/app/dashboard/(auth)/pages/products/product-list";
 
-export async function generateMetadata() {
+export async function generateMetadata(): Promise<Metadata> {
   return generateMeta({
     title: "Product List",
     description:
@@ -34,7 +35,7 @@ export default async function Page() {
         <h1 className="text-2xl font-bold tracking-tight">Products</h1>
         <Button asChild>
           <Link href="/dashboard/pages/products/create">
-            <PlusCircle /> Add Product
+            <PlusIcon /> Add Product
           </Link>
         </Button>
       </div>

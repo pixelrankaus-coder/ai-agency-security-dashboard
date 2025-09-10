@@ -1,14 +1,15 @@
+import { Metadata } from "next";
 import { promises as fs } from "fs";
+import Link from "next/link";
+import { PlusIcon } from "@radix-ui/react-icons";
 import path from "path";
 import { generateMeta } from "@/lib/utils";
 
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { PlusCircledIcon } from "@radix-ui/react-icons";
-import OrdersDataTable from "./data-table";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import OrdersDataTable from "./data-table";
 
-export async function generateMetadata() {
+export async function generateMetadata(): Promise<Metadata> {
   return generateMeta({
     title: "Orders Page",
     description:
@@ -34,7 +35,7 @@ export default async function Page() {
         <h1 className="text-xl font-bold tracking-tight lg:text-2xl">Orders</h1>
         <Button asChild>
           <Link href="#">
-            <PlusCircledIcon /> Create Order
+            <PlusIcon /> Create Order
           </Link>
         </Button>
       </div>

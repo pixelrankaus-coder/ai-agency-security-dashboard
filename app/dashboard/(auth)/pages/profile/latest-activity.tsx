@@ -2,27 +2,27 @@
 
 import * as React from "react";
 import Link from "next/link";
-import { BadgeCheckIcon, BriefcaseBusinessIcon, ClockIcon, DownloadCloud } from "lucide-react";
+import { BadgeCheckIcon, BriefcaseBusinessIcon, ClockIcon } from "lucide-react";
+import { DownloadIcon } from "@radix-ui/react-icons";
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardAction, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { DownloadIcon } from "@radix-ui/react-icons";
 
 export function LatestActivity() {
   return (
     <Card>
       <CardHeader>
-        <div className="flex justify-between">
-          <CardTitle>Latest Activity</CardTitle>
+        <CardTitle>Latest Activity</CardTitle>
+        <CardAction>
           <Link
             href="#"
             className="text-muted-foreground hover:text-primary text-sm hover:underline">
             View All
           </Link>
-        </div>
+        </CardAction>
       </CardHeader>
-      <CardContent>
+      <CardContent className="ps-8">
         <ol className="relative border-s">
           <li className="ms-6 mb-10 space-y-2">
             <span className="bg-muted absolute -start-3 flex h-6 w-6 items-center justify-center rounded-full border">
@@ -37,7 +37,7 @@ export function LatestActivity() {
             <time className="text-muted-foreground flex items-center gap-1.5 text-sm leading-none">
               <ClockIcon className="size-3" /> Released on December 2nd, 2025
             </time>
-            <p className="text-muted-foreground">
+            <p className="text-muted-foreground text-sm">
               Get access to over 20+ pages including a dashboard layout, charts, kanban board,
               calendar, and pre-order E-commerce & Marketing pages.
             </p>
@@ -55,7 +55,7 @@ export function LatestActivity() {
             <time className="text-muted-foreground flex items-center gap-1.5 text-sm leading-none">
               <ClockIcon className="size-3" /> Released on December 2nd, 2025
             </time>
-            <p className="text-muted-foreground">
+            <p className="text-muted-foreground text-sm">
               All of the pages and components are first designed in Figma and we keep a parity
               between the two versions even as we update the project.
             </p>
@@ -68,7 +68,7 @@ export function LatestActivity() {
             <time className="text-muted-foreground flex items-center gap-1.5 text-sm leading-none">
               <ClockIcon className="size-3" /> Released on December 2nd, 2025
             </time>
-            <p className="text-muted-foreground">
+            <p className="text-muted-foreground text-sm">
               Get started with dozens of web components and interactive elements built on top of
               Tailwind CSS.
             </p>

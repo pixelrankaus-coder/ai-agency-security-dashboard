@@ -29,12 +29,6 @@ const connections = [
     status: "connect"
   },
   {
-    name: "Michael Johnson",
-    email: "michael.johnson@example.com",
-    avatar: `https://bundui-images.netlify.app/avatars/04.png`,
-    status: "connect"
-  },
-  {
     name: "Emily Martinez",
     email: "emily.martinez@example.com",
     avatar: `https://bundui-images.netlify.app/avatars/05.png`,
