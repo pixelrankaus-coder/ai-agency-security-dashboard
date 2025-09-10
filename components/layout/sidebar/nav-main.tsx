@@ -50,7 +50,10 @@ import {
   GithubIcon,
   RedoDotIcon,
   BrushCleaningIcon,
-  CreditCardIcon
+  CreditCardIcon,
+  SpeechIcon,
+  MessageSquareHeartIcon,
+  BookAIcon
 } from "lucide-react";
 import Link from "next/link";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
@@ -149,12 +152,17 @@ export const navItems: NavGroup[] = [
       },
       { title: "Notes", href: "/dashboard/apps/notes", icon: StickyNoteIcon, isDataBadge: "8" },
       { title: "Chats", href: "/dashboard/apps/chat", icon: MessageSquareIcon, isDataBadge: "5" },
-      { title: "Mail", href: "/dashboard/apps/mail", icon: MailIcon, isNew: true },
+      {
+        title: "Social Media",
+        href: "/dashboard/apps/social-media",
+        icon: MessageSquareHeartIcon,
+        isComing: true
+      },
+      { title: "Mail", href: "/dashboard/apps/mail", icon: MailIcon },
       {
         title: "Todo List App",
         href: "/dashboard/apps/todo-list-app",
-        icon: SquareCheckIcon,
-        isNew: true
+        icon: SquareCheckIcon
       },
       {
         title: "Tasks",
@@ -169,7 +177,8 @@ export const navItems: NavGroup[] = [
         isNew: true
       },
       { title: "Api Keys", href: "/dashboard/apps/api-keys", icon: KeyIcon },
-      { title: "POS App", href: "/dashboard/apps/pos-system", icon: CookieIcon }
+      { title: "POS App", href: "/dashboard/apps/pos-system", icon: CookieIcon },
+      { title: "Courses", href: "/dashboard/apps/courses", icon: BookAIcon, isComing: true }
     ]
   },
   {
@@ -186,6 +195,12 @@ export const navItems: NavGroup[] = [
         title: "Image Generator",
         href: "/dashboard/apps/ai-image-generator",
         icon: ImagesIcon
+      },
+      {
+        title: "Text to Speech",
+        href: "/dashboard/apps/text-to-speech",
+        icon: SpeechIcon,
+        isComing: true
       }
     ]
   },

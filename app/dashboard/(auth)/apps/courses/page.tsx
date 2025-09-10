@@ -1,14 +1,14 @@
+import { Metadata } from "next";
 import { generateMeta } from "@/lib/utils";
 import { AlertCircleIcon } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Metadata } from "next";
 
 export async function generateMetadata(): Promise<Metadata> {
   return generateMeta({
-    title: "Hotel Admin Dashboard",
+    title: "Courses",
     description:
-      "On the hotel admin dashboard, you can see your turnover, manage reservations, and view your customers. Built with shadcn/ui, Tailwind CSS, Next.js.",
-    canonical: "/hotel"
+      "An app template used to browse, register for, and manage training courses. Built with shadcn/ui, Tailwind CSS, Next.js and React.",
+    canonical: "/courses"
   });
 }
 
@@ -36,10 +36,10 @@ export default function Page() {
                   fill="currentColor"
                   d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
               </svg>
-              <h1 className="text-xl">Hotel Dashboard</h1>
+              <h1 className="text-xl">Courses</h1>
             </CardTitle>
             <CardDescription>
-              It is a template used to manage reservations, rooms, guests, and hotel operations.
+              An app template used to browse, register for, and manage training courses.
             </CardDescription>
           </CardHeader>
           <CardContent className="border-t pt-4">
