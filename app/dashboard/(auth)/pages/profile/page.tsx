@@ -52,7 +52,7 @@ export default function Page() {
         </div>
         <div className="space-y-4 xl:col-span-2">
           <LatestActivity />
-          <div className="grid gap-4 xl:grid-cols-2">
+          <div className="grid grid-cols-1 gap-4 xl:grid-cols-2">
             <AboutMe />
             <Connections />
           </div>
