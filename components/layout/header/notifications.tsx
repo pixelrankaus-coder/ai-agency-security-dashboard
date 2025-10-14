@@ -47,7 +47,7 @@ const Notifications = () => {
               <div className="flex flex-1 items-start gap-2">
                 <div className="flex-none">
                   <Avatar className="size-8">
-                    <AvatarImage src={`https://bundui-images.netlify.app/avatars/${item.avatar}`} />
+                    <AvatarImage src={`/images/avatars/${item.avatar}`} />
                     <AvatarFallback> {item.title.charAt(0)}</AvatarFallback>
                   </Avatar>
                 </div>

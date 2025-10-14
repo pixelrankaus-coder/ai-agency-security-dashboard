@@ -6,12 +6,12 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
 const users = [
-  { name: "Emma Smith", avatar: `https://bundui-images.netlify.app/avatars/08.png` },
-  { name: "Olivia Johnson", avatar: `https://bundui-images.netlify.app/avatars/09.png` },
-  { name: "Ava Brown", avatar: `https://bundui-images.netlify.app/avatars/03.png` },
-  { name: "Sophia Taylor", avatar: `https://bundui-images.netlify.app/avatars/04.png` },
-  { name: "Isabella Anderson", avatar: `https://bundui-images.netlify.app/avatars/05.png` },
-  { name: "Mia Thomas", avatar: `https://bundui-images.netlify.app/avatars/06.png` }
+  { name: "Emma Smith", avatar: `/images/avatars/08.png` },
+  { name: "Olivia Johnson", avatar: `/images/avatars/09.png` },
+  { name: "Ava Brown", avatar: `/images/avatars/03.png` },
+  { name: "Sophia Taylor", avatar: `/images/avatars/04.png` },
+  { name: "Isabella Anderson", avatar: `/images/avatars/05.png` },
+  { name: "Mia Thomas", avatar: `/images/avatars/06.png` }
 ];
 
 export function SuccessMetrics() {

@@ -17,7 +17,7 @@ export function BestSellingProducts() {
   const products = [
     {
       id: 1,
-      image: `https://bundui-images.netlify.app/products/01.jpeg`,
+      image: `/images/products/01.jpeg`,
       name: "Sports Shoes",
       price: 316,
       sold: 316,
@@ -25,7 +25,7 @@ export function BestSellingProducts() {
     },
     {
       id: 2,
-      image: `https://bundui-images.netlify.app/products/02.jpeg`,
+      image: `/images/products/02.jpeg`,
       name: "Black T-Shirt",
       price: 274,
       sold: 274,
@@ -33,7 +33,7 @@ export function BestSellingProducts() {
     },
     {
       id: 3,
-      image: `https://bundui-images.netlify.app/products/03.jpeg`,
+      image: `/images/products/03.jpeg`,
       name: "Jeans",
       price: 195,
       sold: 195,
@@ -41,7 +41,7 @@ export function BestSellingProducts() {
     },
     {
       id: 4,
-      image: `https://bundui-images.netlify.app/products/04.jpeg`,
+      image: `/images/products/04.jpeg`,
       name: "Red Sneakers",
       price: 402,
       sold: 402,
@@ -49,7 +49,7 @@ export function BestSellingProducts() {
     },
     {
       id: 5,
-      image: `https://bundui-images.netlify.app/products/05.jpeg`,
+      image: `/images/products/05.jpeg`,
       name: "Red Scarf",
       price: 280,
       sold: 280,
@@ -57,7 +57,7 @@ export function BestSellingProducts() {
     },
     {
       id: 6,
-      image: `https://bundui-images.netlify.app/products/06.jpeg`,
+      image: `/images/products/06.jpeg`,
       name: "Kitchen Accessory",
       price: 150,
       sold: 150,

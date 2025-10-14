@@ -76,13 +76,13 @@ export default function KanbanBoard() {
         users: [
           {
             name: "Emma",
-            src: "https://bundui-images.netlify.app/avatars/01.png",
+            src: "/images/avatars/01.png",
             alt: "Emma Avatar",
             fallback: "EJ"
           },
           {
             name: "Daniel",
-            src: "https://bundui-images.netlify.app/avatars/02.png",
+            src: "/images/avatars/02.png",
             alt: "Daniel Avatar",
             fallback: "DS"
           }
@@ -101,13 +101,13 @@ export default function KanbanBoard() {
         users: [
           {
             name: "Lucas",
-            src: "https://bundui-images.netlify.app/avatars/03.png",
+            src: "/images/avatars/03.png",
             alt: "Lucas Avatar",
             fallback: "LB"
           },
           {
             name: "Sophia",
-            src: "https://bundui-images.netlify.app/avatars/04.png",
+            src: "/images/avatars/04.png",
             alt: "Sophia Avatar",
             fallback: "SR"
           }
@@ -126,13 +126,13 @@ export default function KanbanBoard() {
         users: [
           {
             name: "Mia",
-            src: "https://bundui-images.netlify.app/avatars/05.png",
+            src: "/images/avatars/05.png",
             alt: "Mia Avatar",
             fallback: "MW"
           },
           {
             name: "Jack",
-            src: "https://bundui-images.netlify.app/avatars/06.png",
+            src: "/images/avatars/06.png",
             alt: "Jack Avatar",
             fallback: "JL"
           }
@@ -151,13 +151,13 @@ export default function KanbanBoard() {
         users: [
           {
             name: "Olivia",
-            src: "https://bundui-images.netlify.app/avatars/07.png",
+            src: "/images/avatars/07.png",
             alt: "Olivia Avatar",
             fallback: "OD"
           },
           {
             name: "Henry",
-            src: "https://bundui-images.netlify.app/avatars/08.png",
+            src: "/images/avatars/08.png",
             alt: "Henry Avatar",
             fallback: "HT"
           }
@@ -178,13 +178,13 @@ export default function KanbanBoard() {
         users: [
           {
             name: "Charlie",
-            src: "https://bundui-images.netlify.app/avatars/09.png",
+            src: "/images/avatars/09.png",
             alt: "Charlie Avatar",
             fallback: "CW"
           },
           {
             name: "Ava",
-            src: "https://bundui-images.netlify.app/avatars/10.png",
+            src: "/images/avatars/10.png",
             alt: "Ava Avatar",
             fallback: "AR"
           }
@@ -203,13 +203,13 @@ export default function KanbanBoard() {
         users: [
           {
             name: "Liam",
-            src: "https://bundui-images.netlify.app/avatars/11.png",
+            src: "/images/avatars/11.png",
             alt: "Liam Avatar",
             fallback: "LM"
           },
           {
             name: "Isabella",
-            src: "https://bundui-images.netlify.app/avatars/12.png",
+            src: "/images/avatars/12.png",
             alt: "Isabella Avatar",
             fallback: "IN"
           }
@@ -228,13 +228,13 @@ export default function KanbanBoard() {
         users: [
           {
             name: "Noah",
-            src: "https://bundui-images.netlify.app/avatars/13.png",
+            src: "/images/avatars/13.png",
             alt: "Noah Avatar",
             fallback: "NT"
           },
           {
             name: "Ella",
-            src: "https://bundui-images.netlify.app/avatars/14.png",
+            src: "/images/avatars/14.png",
             alt: "Ella Avatar",
             fallback: "EL"
           }
@@ -255,13 +255,13 @@ export default function KanbanBoard() {
         users: [
           {
             name: "Ethan",
-            src: "https://bundui-images.netlify.app/avatars/15.png",
+            src: "/images/avatars/15.png",
             alt: "Ethan Avatar",
             fallback: "EC"
           },
           {
             name: "Grace",
-            src: "https://bundui-images.netlify.app/avatars/16.png",
+            src: "/images/avatars/16.png",
             alt: "Grace Avatar",
             fallback: "GR"
           }
@@ -281,13 +281,13 @@ export default function KanbanBoard() {
         users: [
           {
             name: "Harper",
-            src: "https://bundui-images.netlify.app/avatars/17.png",
+            src: "/images/avatars/17.png",
             alt: "Harper Avatar",
             fallback: "HL"
           },
           {
             name: "Benjamin",
-            src: "https://bundui-images.netlify.app/avatars/18.png",
+            src: "/images/avatars/18.png",
             alt: "Benjamin Avatar",
             fallback: "BM"
           }
@@ -510,15 +510,15 @@ export default function KanbanBoard() {
         <div className="flex items-center space-x-2">
           <div className="flex -space-x-2 overflow-hidden">
             <Avatar className="border-background border-2">
-              <AvatarImage src="https://bundui-images.netlify.app/avatars/05.png" alt="..." />
+              <AvatarImage src="/images/avatars/05.png" alt="..." />
               <AvatarFallback>AT</AvatarFallback>
             </Avatar>
             <Avatar className="border-background border-2">
-              <AvatarImage src="https://bundui-images.netlify.app/avatars/04.png" alt="..." />
+              <AvatarImage src="/images/avatars/04.png" alt="..." />
               <AvatarFallback>AT</AvatarFallback>
             </Avatar>
             <Avatar className="border-background border-2">
-              <AvatarImage src="https://bundui-images.netlify.app/avatars/03.png" alt="..." />
+              <AvatarImage src="/images/avatars/03.png" alt="..." />
               <AvatarFallback>AT</AvatarFallback>
             </Avatar>
             <Avatar className="border-background border-2">

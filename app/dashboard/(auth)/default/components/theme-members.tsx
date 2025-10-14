@@ -45,21 +45,21 @@ const members = [
     id: 1,
     name: "Toby Belhome",
     email: "contact@bundui.io",
-    avatar: `https://bundui-images.netlify.app/avatars/01.png`,
+    avatar: `/images/avatars/01.png`,
     role_id: 1
   },
   {
     id: 2,
     name: "Jackson Lee",
     email: "pre@example.com",
-    avatar: `https://bundui-images.netlify.app/avatars/02.png`,
+    avatar: `/images/avatars/02.png`,
     role_id: 2
   },
   {
     id: 3,
     name: "Hally Gray",
     email: "hally@site.com",
-    avatar: `https://bundui-images.netlify.app/avatars/03.png`,
+    avatar: `/images/avatars/03.png`,
     role_id: 1
   }
 ];

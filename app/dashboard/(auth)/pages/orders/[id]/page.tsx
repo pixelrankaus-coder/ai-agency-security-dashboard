@@ -235,7 +235,7 @@ export default function Page() {
                   <TableCell>
                     <div className="flex items-center gap-4">
                       <Image
-                        src={`https://bundui-images.netlify.app${item.image}`}
+                        src={`/images${item.image}`}
                         width={60}
                         height={60}
                         className="h-10 w-10 rounded-md lg:h-16 lg:w-16"

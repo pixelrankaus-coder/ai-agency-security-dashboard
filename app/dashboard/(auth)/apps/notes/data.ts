@@ -7,7 +7,7 @@ export const notes: Note[] = [
     type: "image",
     labels: [1, 3],
     isArchived: false,
-    image: `https://bundui-images.netlify.app/extra/image5.jpg`,
+    image: `/images/extra/image5.jpg`,
     content:
       "Captured this beautiful sunset during our hiking trip. The colors were absolutely stunning!"
   },
@@ -42,7 +42,7 @@ export const notes: Note[] = [
     type: "image",
     labels: [3],
     isArchived: false,
-    image: `https://bundui-images.netlify.app/extra/image3.jpg`,
+    image: `/images/extra/image3.jpg`,
     content:
       "Potential routes for our upcoming desert adventure. Need to plan stops and accommodation."
   },

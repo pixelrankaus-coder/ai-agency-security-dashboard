@@ -27,7 +27,7 @@ export function DigitalWallets() {
               width={20}
               height={20}
               className="size-6 object-contain"
-              src={"https://bundui-images.netlify.app/crypto-icons/bitcoin.svg"}
+              src={"/images/crypto-icons/bitcoin.svg"}
               unoptimized
               alt="shadcn/ui"
             />
@@ -43,7 +43,7 @@ export function DigitalWallets() {
               width={20}
               height={20}
               className="size-6 object-contain"
-              src={"https://bundui-images.netlify.app/crypto-icons/ethereum.svg"}
+              src={"/images/crypto-icons/ethereum.svg"}
               unoptimized
               alt="shadcn/ui"
             />
@@ -59,7 +59,7 @@ export function DigitalWallets() {
               width={20}
               height={20}
               className="size-6 object-contain"
-              src={"https://bundui-images.netlify.app/crypto-icons/avalanche.svg"}
+              src={"/images/crypto-icons/avalanche.svg"}
               unoptimized
               alt="..."
             />

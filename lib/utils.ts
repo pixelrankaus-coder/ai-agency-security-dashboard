@@ -30,7 +30,7 @@ export function generateMeta({
       canonical: `/dashboard${canonical}`
     },
     openGraph: {
-      images: [`https://bundui-images.netlify.app/seo.jpg`]
+      images: [`/images/seo.jpg`]
     }
   };
 }

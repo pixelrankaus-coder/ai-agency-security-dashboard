@@ -45,7 +45,7 @@ const data: Project[] = [
     id: 1,
     name: "Product Development",
     client: {
-      avatar: `https://bundui-images.netlify.app/avatars/01.png`,
+      avatar: `/images/avatars/01.png`,
       name: "Kevin Heal"
     },
     date: "20/03/2024",
@@ -57,7 +57,7 @@ const data: Project[] = [
     id: 2,
     name: "New Office Building",
     client: {
-      avatar: `https://bundui-images.netlify.app/avatars/02.png`,
+      avatar: `/images/avatars/02.png`,
       name: "Sarah Johnson"
     },
     date: "15/03/2024",
@@ -69,7 +69,7 @@ const data: Project[] = [
     id: 3,
     name: "Mobile app design",
     client: {
-      avatar: `https://bundui-images.netlify.app/avatars/03.png`,
+      avatar: `/images/avatars/03.png`,
       name: "Michael Chen"
     },
     date: "10/03/2024",
@@ -81,7 +81,7 @@ const data: Project[] = [
     id: 4,
     name: "Website & Blog",
     client: {
-      avatar: `https://bundui-images.netlify.app/avatars/04.png`,
+      avatar: `/images/avatars/04.png`,
       name: "Emily Rodriguez"
     },
     date: "05/03/2024",
@@ -93,7 +93,7 @@ const data: Project[] = [
     id: 5,
     name: "Marketing Campaign",
     client: {
-      avatar: `https://bundui-images.netlify.app/avatars/05.png`,
+      avatar: `/images/avatars/05.png`,
       name: "David Wilson"
     },
     date: "01/03/2024",
@@ -105,7 +105,7 @@ const data: Project[] = [
     id: 6,
     name: "E-commerce Platform",
     client: {
-      avatar: `https://bundui-images.netlify.app/avatars/06.png`,
+      avatar: `/images/avatars/06.png`,
       name: "Jessica Lee"
     },
     date: "25/02/2024",
@@ -117,7 +117,7 @@ const data: Project[] = [
     id: 7,
     name: "CRM Integration",
     client: {
-      avatar: `https://bundui-images.netlify.app/avatars/07.png`,
+      avatar: `/images/avatars/07.png`,
       name: "Robert Brown"
     },
     date: "20/02/2024",
@@ -129,7 +129,7 @@ const data: Project[] = [
     id: 8,
     name: "Data Analytics Dashboard",
     client: {
-      avatar: `https://bundui-images.netlify.app/avatars/08.png`,
+      avatar: `/images/avatars/08.png`,
       name: "Amanda Taylor"
     },
     date: "15/02/2024",
@@ -141,7 +141,7 @@ const data: Project[] = [
     id: 9,
     name: "Mobile Payment System",
     client: {
-      avatar: `https://bundui-images.netlify.app/avatars/09.png`,
+      avatar: `/images/avatars/09.png`,
       name: "Thomas Garcia"
     },
     date: "10/02/2024",
@@ -153,7 +153,7 @@ const data: Project[] = [
     id: 10,
     name: "AI Chatbot Development",
     client: {
-      avatar: `https://bundui-images.netlify.app/avatars/10.png`,
+      avatar: `/images/avatars/10.png`,
       name: "Olivia Martinez"
     },
     date: "05/02/2024",
@@ -165,7 +165,7 @@ const data: Project[] = [
     id: 11,
     name: "Cloud Migration",
     client: {
-      avatar: `https://bundui-images.netlify.app/avatars/01.png`,
+      avatar: `/images/avatars/01.png`,
       name: "William Clark"
     },
     date: "01/02/2024",
@@ -177,7 +177,7 @@ const data: Project[] = [
     id: 12,
     name: "Security Audit",
     client: {
-      avatar: `https://bundui-images.netlify.app/avatars/02.png`,
+      avatar: `/images/avatars/02.png`,
       name: "Sophia Kim"
     },
     date: "25/01/2024",

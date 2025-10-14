@@ -8,7 +8,7 @@
     "size": "5.8 GB",
     "owner": {
       "name": "User",
-      "avatar": "https://bundui-images.netlify.app/avatars/01.png"
+      "avatar": "/images/avatars/01.png"
     },
     "parentPath": "",
     "children": [
@@ -21,7 +21,7 @@
         "size": "2.1 GB",
         "owner": {
           "name": "User",
-          "avatar": "https://bundui-images.netlify.app/avatars/02.png"
+          "avatar": "/images/avatars/02.png"
         },
         "parentPath": "Design"
       },
@@ -34,7 +34,7 @@
         "size": "45 MB",
         "owner": {
           "name": "User",
-          "avatar": "https://bundui-images.netlify.app/avatars/03.png"
+          "avatar": "/images/avatars/03.png"
         },
         "parentPath": "Design"
       }
@@ -49,7 +49,7 @@
     "size": "3.2 GB",
     "owner": {
       "name": "User",
-      "avatar": "https://bundui-images.netlify.app/avatars/04.png"
+      "avatar": "/images/avatars/04.png"
     },
     "parentPath": "",
     "children": [
@@ -62,7 +62,7 @@
         "size": "1.8 GB",
         "owner": {
           "name": "User",
-          "avatar": "https://bundui-images.netlify.app/avatars/05.png"
+          "avatar": "/images/avatars/05.png"
         },
         "parentPath": "Projects"
       },
@@ -75,7 +75,7 @@
         "size": "1.4 GB",
         "owner": {
           "name": "User",
-          "avatar": "https://bundui-images.netlify.app/avatars/06.png"
+          "avatar": "/images/avatars/06.png"
         },
         "parentPath": "Projects"
       }
@@ -90,7 +90,7 @@
     "size": "1.5 GB",
     "owner": {
       "name": "User",
-      "avatar": "https://bundui-images.netlify.app/avatars/01.png"
+      "avatar": "/images/avatars/01.png"
     },
     "parentPath": "",
     "children": [
@@ -103,7 +103,7 @@
         "size": "250 MB",
         "owner": {
           "name": "User",
-          "avatar": "https://bundui-images.netlify.app/avatars/07.png"
+          "avatar": "/images/avatars/07.png"
         },
         "parentPath": "Music"
       }
@@ -118,7 +118,7 @@
     "size": "1.7 GB",
     "owner": {
       "name": "User",
-      "avatar": "https://bundui-images.netlify.app/avatars/09.png"
+      "avatar": "/images/avatars/09.png"
     },
     "parentPath": "",
     "children": [
@@ -131,7 +131,7 @@
         "size": "890 MB",
         "owner": {
           "name": "User",
-          "avatar": "https://bundui-images.netlify.app/avatars/08.png"
+          "avatar": "/images/avatars/08.png"
         },
         "parentPath": "Pictures"
       }
@@ -146,7 +146,7 @@
     "size": "440 MB",
     "owner": {
       "name": "User",
-      "avatar": "https://bundui-images.netlify.app/avatars/09.png"
+      "avatar": "/images/avatars/09.png"
     },
     "parentPath": "",
     "children": [

@@ -24,27 +24,27 @@ const users = [
   {
     name: "Olivia Martin",
     email: "m@example.com",
-    avatar: `https://bundui-images.netlify.app/avatars/01.png`
+    avatar: `/images/avatars/01.png`
   },
   {
     name: "Isabella Nguyen",
     email: "isabella.nguyen@email.com",
-    avatar: `https://bundui-images.netlify.app/avatars/07.png`
+    avatar: `/images/avatars/07.png`
   },
   {
     name: "Emma Wilson",
     email: "emma@example.com",
-    avatar: `https://bundui-images.netlify.app/avatars/02.png`
+    avatar: `/images/avatars/02.png`
   },
   {
     name: "Jackson Lee",
     email: "lee@example.com",
-    avatar: `https://bundui-images.netlify.app/avatars/09.png`
+    avatar: `/images/avatars/09.png`
   },
   {
     name: "William Kim",
     email: "will@email.com",
-    avatar: `https://bundui-images.netlify.app/avatars/06.png`
+    avatar: `/images/avatars/06.png`
   }
 ] as const;
 

@@ -10,7 +10,7 @@ const activities = [
   {
     type: "Buy",
     name: "Bitcoin",
-    icon: `https://bundui-images.netlify.app/crypto-icons/bitcoin.svg`,
+    icon: `/images/crypto-icons/bitcoin.svg`,
     short_name: "BTC",
     date: "Nov 12, 2024 11:34 PM",
     amount: 0.5384,
@@ -19,7 +19,7 @@ const activities = [
   {
     type: "Buy",
     name: "Ethereum",
-    icon: `https://bundui-images.netlify.app/crypto-icons/ethereum.svg`,
+    icon: `/images/crypto-icons/ethereum.svg`,
     short_name: "ETH",
     date: "Nov 28, 2024 11:34 PM",
     amount: 0.5384,
@@ -28,7 +28,7 @@ const activities = [
   {
     type: "Sell",
     name: "Dogecoin",
-    icon: `https://bundui-images.netlify.app/crypto-icons/bitcoin.svg`,
+    icon: `/images/crypto-icons/bitcoin.svg`,
     short_name: "DOGE",
     date: "Nov 10, 2024 11:34 PM",
     amount: 0.5384,
@@ -37,7 +37,7 @@ const activities = [
   {
     type: "Buy",
     name: "Tether",
-    icon: `https://bundui-images.netlify.app/crypto-icons/bitcoin.svg`,
+    icon: `/images/crypto-icons/bitcoin.svg`,
     symbol: "USDT",
     date: "Nov 12, 2024 11:34 PM",
     amount: 0.5384,
@@ -46,7 +46,7 @@ const activities = [
   {
     type: "Sell",
     name: "Toncoin",
-    icon: `https://bundui-images.netlify.app/crypto-icons/toncoin.svg`,
+    icon: `/images/crypto-icons/toncoin.svg`,
     short_name: "TON",
     date: "Sept 04, 2024 11:34 PM",
     amount: 0.5384,
@@ -55,7 +55,7 @@ const activities = [
   {
     type: "Send",
     name: "Avalanche",
-    icon: `https://bundui-images.netlify.app/crypto-icons/avalanche.svg`,
+    icon: `/images/crypto-icons/avalanche.svg`,
     short_name: "AVAX",
     date: "Nov 12, 2019 11:34 PM",
     amount: 0.5384,

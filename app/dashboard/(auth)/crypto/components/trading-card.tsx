@@ -102,7 +102,7 @@ export function TradingCard() {
                                     width={20}
                                     height={20}
                                     className="size-6"
-                                    src={`https://bundui-images.netlify.app/crypto-icons/${coins.find((coin) => coin.name === selectedCoin)?.icon}.svg`}
+                                    src={`/images/crypto-icons/${coins.find((coin) => coin.name === selectedCoin)?.icon}.svg`}
                                     unoptimized
                                     alt="..."
                                   />
@@ -119,7 +119,7 @@ export function TradingCard() {
                                       width={20}
                                       height={20}
                                       className="size-6"
-                                      src={`https://bundui-images.netlify.app/crypto-icons/${coin.icon}.svg`}
+                                      src={`/images/crypto-icons/${coin.icon}.svg`}
                                       unoptimized
                                       alt="..."
                                     />
@@ -186,7 +186,7 @@ export function TradingCard() {
                                     width={20}
                                     height={20}
                                     className="size-6"
-                                    src={`https://bundui-images.netlify.app/crypto-icons/${coins.find((coin) => coin.name === selectedCoin)?.icon}.svg`}
+                                    src={`/images/crypto-icons/${coins.find((coin) => coin.name === selectedCoin)?.icon}.svg`}
                                     unoptimized
                                     alt="..."
                                   />
@@ -203,7 +203,7 @@ export function TradingCard() {
                                       width={20}
                                       height={20}
                                       className="size-6"
-                                      src={`https://bundui-images.netlify.app/crypto-icons/${coin.icon}.svg`}
+                                      src={`/images/crypto-icons/${coin.icon}.svg`}
                                       unoptimized
                                       alt="..."
                                     />

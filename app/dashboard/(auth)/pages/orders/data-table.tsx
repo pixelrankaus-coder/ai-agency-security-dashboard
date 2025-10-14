@@ -104,7 +104,7 @@ export const columns: ColumnDef<Order>[] = [
     cell: ({ row }) => (
       <div className="flex items-center gap-4">
         <Image
-          src={`https://bundui-images.netlify.app${row.original.image}`}
+          src={`/images${row.original.image}`}
           width={40}
           height={40}
           className="size-10 rounded-md lg:size-12"

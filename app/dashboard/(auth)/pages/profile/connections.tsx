@@ -13,31 +13,31 @@ const connections = [
   {
     name: "Olivia Davis",
     email: "olivia.davis@example.com",
-    avatar: `https://bundui-images.netlify.app/avatars/01.png`,
+    avatar: `/images/avatars/01.png`,
     status: "connect"
   },
   {
     name: "John Doe",
     email: "john.doe@example.com",
-    avatar: `https://bundui-images.netlify.app/avatars/02.png`,
+    avatar: `/images/avatars/02.png`,
     status: "disconnect"
   },
   {
     name: "Alice Smith",
     email: "alice.smith@example.com",
-    avatar: `https://bundui-images.netlify.app/avatars/03.png`,
+    avatar: `/images/avatars/03.png`,
     status: "connect"
   },
   {
     name: "Emily Martinez",
     email: "emily.martinez@example.com",
-    avatar: `https://bundui-images.netlify.app/avatars/05.png`,
+    avatar: `/images/avatars/05.png`,
     status: "disconnect"
   },
   {
     name: "James Wilson",
     email: "james.wilson@example.com",
-    avatar: `https://bundui-images.netlify.app/avatars/06.png`,
+    avatar: `/images/avatars/06.png`,
     status: "disconnect"
   }
 ];

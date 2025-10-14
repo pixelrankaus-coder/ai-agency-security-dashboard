@@ -11,7 +11,7 @@ export function ProfileCard() {
         <div className="space-y-12">
           <div className="flex flex-col items-center space-y-4">
             <Avatar className="size-20">
-              <AvatarImage src={`https://bundui-images.netlify.app/avatars/10.png`} alt="@shadcn" />
+              <AvatarImage src={`/images/avatars/10.png`} alt="@shadcn" />
               <AvatarFallback>AH</AvatarFallback>
             </Avatar>
             <div className="text-center">

@@ -40,7 +40,7 @@ const data: Course[] = [
     id: 1,
     name: "Introduction to React",
     category: "Web Development",
-    image: `https://bundui-images.netlify.app/tech/react.svg`,
+    image: `/images/tech/react.svg`,
     score: 4.5,
     progress: 60,
     started: true
@@ -49,7 +49,7 @@ const data: Course[] = [
     id: 2,
     name: "Machine Learning Basics",
     category: "Data Science",
-    image: `https://bundui-images.netlify.app/tech/angular.svg`,
+    image: `/images/tech/angular.svg`,
     score: 4.8,
     progress: 0,
     started: false
@@ -58,7 +58,7 @@ const data: Course[] = [
     id: 3,
     name: "Digital Marketing Fundamentals",
     category: "Marketing",
-    image: `https://bundui-images.netlify.app/tech/vue.svg`,
+    image: `/images/tech/vue.svg`,
     score: 4.2,
     progress: 45,
     started: true
@@ -67,7 +67,7 @@ const data: Course[] = [
     id: 4,
     name: "Python for Beginners",
     category: "Programming",
-    image: `https://bundui-images.netlify.app/tech/html.svg`,
+    image: `/images/tech/html.svg`,
     score: 4.6,
     progress: 0,
     started: false
@@ -76,7 +76,7 @@ const data: Course[] = [
     id: 5,
     name: "UX Design Principles",
     category: "Design",
-    image: `https://bundui-images.netlify.app/tech/css.svg`,
+    image: `/images/tech/css.svg`,
     score: 4.4,
     progress: 0,
     started: false
@@ -85,7 +85,7 @@ const data: Course[] = [
     id: 5,
     name: "Svelte Project Development",
     category: "Programming",
-    image: `https://bundui-images.netlify.app/tech/svelte.svg`,
+    image: `/images/tech/svelte.svg`,
     score: 4.8,
     progress: 0,
     started: false

@@ -8,7 +8,7 @@ const patients = [
   {
     id: 1,
     name: "Olivia Martin",
-    avatar: `https://bundui-images.netlify.app/avatars/01.png`,
+    avatar: `/images/avatars/01.png`,
     email: "olivia.martin@email.com",
     lastProcedure: "Appendectomy",
     date: "2025-05-20"
@@ -16,7 +16,7 @@ const patients = [
   {
     id: 2,
     name: "Jackson Lee",
-    avatar: `https://bundui-images.netlify.app/avatars/02.png`,
+    avatar: `/images/avatars/02.png`,
     email: "jackson.lee@email.com",
     lastProcedure: "Knee Arthroscopy",
     date: "2025-05-18"
@@ -24,7 +24,7 @@ const patients = [
   {
     id: 3,
     name: "Isabella Nguyen",
-    avatar: `https://bundui-images.netlify.app/avatars/03.png`,
+    avatar: `/images/avatars/03.png`,
     email: "isabella.nguyen@email.com",
     lastProcedure: "Cataract Surgery",
     date: "2025-05-15"
@@ -32,7 +32,7 @@ const patients = [
   {
     id: 4,
     name: "William Chen",
-    avatar: `https://bundui-images.netlify.app/avatars/04.png`,
+    avatar: `/images/avatars/04.png`,
     email: "william.chen@email.com",
     lastProcedure: "Colonoscopy",
     date: "2025-05-12"
@@ -40,7 +40,7 @@ const patients = [
   {
     id: 5,
     name: "Can Jackson",
-    avatar: `https://bundui-images.netlify.app/avatars/05.png`,
+    avatar: `/images/avatars/05.png`,
     email: "can.jackson@email.com",
     lastProcedure: "Colonoscopy",
     date: "2025-08-12"

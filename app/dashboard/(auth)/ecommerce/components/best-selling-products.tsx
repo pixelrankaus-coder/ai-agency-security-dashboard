@@ -48,7 +48,7 @@ export type Product = {
 const data: Product[] = [
   {
     id: 1,
-    image: `https://bundui-images.netlify.app/products/01.jpeg`,
+    image: `/images/products/01.jpeg`,
     name: "Sports Shoes",
     price: 316,
     sold: 316,
@@ -56,7 +56,7 @@ const data: Product[] = [
   },
   {
     id: 2,
-    image: `https://bundui-images.netlify.app/products/02.jpeg`,
+    image: `/images/products/02.jpeg`,
     name: "Black T-Shirt",
     price: 274,
     sold: 274,
@@ -64,7 +64,7 @@ const data: Product[] = [
   },
   {
     id: 3,
-    image: `https://bundui-images.netlify.app/products/03.jpeg`,
+    image: `/images/products/03.jpeg`,
     name: "Jeans",
     price: 195,
     sold: 195,
@@ -72,7 +72,7 @@ const data: Product[] = [
   },
   {
     id: 4,
-    image: `https://bundui-images.netlify.app/products/04.jpeg`,
+    image: `/images/products/04.jpeg`,
     name: "Red Sneakers",
     price: 402,
     sold: 402,
@@ -80,7 +80,7 @@ const data: Product[] = [
   },
   {
     id: 5,
-    image: `https://bundui-images.netlify.app/products/05.jpeg`,
+    image: `/images/products/05.jpeg`,
     name: "Red Scarf",
     price: 280,
     sold: 280,
@@ -88,7 +88,7 @@ const data: Product[] = [
   },
   {
     id: 6,
-    image: `https://bundui-images.netlify.app/products/06.jpeg`,
+    image: `/images/products/06.jpeg`,
     name: "Kitchen Accessory",
     price: 150,
     sold: 150,
@@ -96,7 +96,7 @@ const data: Product[] = [
   },
   {
     id: 7,
-    image: `https://bundui-images.netlify.app/products/07.jpeg`,
+    image: `/images/products/07.jpeg`,
     name: "Bicycle",
     price: 316,
     sold: 316,
@@ -104,7 +104,7 @@ const data: Product[] = [
   },
   {
     id: 8,
-    image: `https://bundui-images.netlify.app/products/01.jpeg`,
+    image: `/images/products/01.jpeg`,
     name: "Sports Shoes",
     price: 290,
     sold: 290,
