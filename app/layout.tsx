@@ -34,9 +34,6 @@ export default async function RootLayout({
 
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        <script src="https://tweakcn.com/live-preview.min.js"></script>
-      </head>
       <body
         suppressHydrationWarning
         className={cn("bg-background group/layout font-sans", fontVariables)}
