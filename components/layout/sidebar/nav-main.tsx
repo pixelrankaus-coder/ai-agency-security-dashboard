@@ -360,7 +360,9 @@ export function NavMain() {
                           </DropdownMenuContent>
                         </DropdownMenu>
                       </div>
-                      <Collapsible className="group/collapsible block group-data-[collapsible=icon]:hidden">
+                      <Collapsible
+                        className="group/collapsible block group-data-[collapsible=icon]:hidden"
+                        defaultOpen={!!item.items.find((s) => s.href === pathname)}>
                         <CollapsibleTrigger asChild>
                           <SidebarMenuButton
                             className="hover:text-foreground active:text-foreground hover:bg-[var(--primary)]/10 active:bg-[var(--primary)]/10"
