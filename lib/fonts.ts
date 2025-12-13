@@ -8,7 +8,8 @@ import {
   PT_Sans,
   Plus_Jakarta_Sans,
   Hedvig_Letters_Serif,
-  Kumbh_Sans
+  Kumbh_Sans,
+  Outfit
 } from "next/font/google";
 import { cn } from "@/lib/utils";
 
@@ -64,6 +65,12 @@ const kumbh_sans = Kumbh_Sans({
   variable: "--font-kumbh-sans"
 });
 
+const outfit = Outfit({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-outfit"
+});
+
 export const fontVariables = cn(
   geist.variable,
   inter.variable,
@@ -74,5 +81,6 @@ export const fontVariables = cn(
   ptSans.variable,
   plus_jakarta_sans.variable,
   hedvig_letters_serif.variable,
-  kumbh_sans.variable
+  kumbh_sans.variable,
+  outfit.variable
 );

@@ -88,7 +88,7 @@ export const navItems: NavGroup[] = [
     title: "Dashboards",
     items: [
       {
-        title: "Default",
+        title: "Classic Dashboard",
         href: "/dashboard/default",
         icon: ChartPieIcon
       },
@@ -105,30 +105,15 @@ export const navItems: NavGroup[] = [
           { title: "Order Detail", href: "/dashboard/pages/orders/detail" }
         ]
       },
-      { title: "Sales", href: "/dashboard/sales", icon: BadgeDollarSignIcon },
-      { title: "CRM", href: "/dashboard/crm", icon: ChartBarDecreasingIcon },
       {
-        title: "Website Analytics",
-        href: "/dashboard/website-analytics",
-        icon: GaugeIcon
-      },
-      {
-        title: "Project Management",
-        href: "/dashboard/project-management",
-        icon: FolderDotIcon,
+        title: "Payment Dashboard",
+        href: "/dashboard/payment",
+        icon: CreditCardIcon,
         items: [
-          { title: "Dashboard", href: "/dashboard/project-management" },
-          { title: "Project List", href: "/dashboard/project-list" }
+          { title: "Dashboard", href: "/dashboard/payment" },
+          { title: "Transactions", href: "/dashboard/payment/transactions" }
         ]
       },
-      {
-        title: "File Manager",
-        href: "/dashboard/file-manager",
-        icon: FolderIcon
-      },
-      { title: "Crypto", href: "/dashboard/crypto", icon: WalletMinimalIcon },
-      { title: "Academy/School", href: "/dashboard/academy", icon: GraduationCapIcon },
-      { title: "Hospital Management", href: "/dashboard/hospital-management", icon: ActivityIcon },
       {
         title: "Hotel Dashboard",
         href: "/dashboard/hotel",
@@ -139,18 +124,33 @@ export const navItems: NavGroup[] = [
         ]
       },
       {
+        title: "Project Management",
+        href: "/dashboard/project-management",
+        icon: FolderDotIcon,
+        items: [
+          { title: "Dashboard", href: "/dashboard/project-management" },
+          { title: "Project List", href: "/dashboard/project-list" }
+        ]
+      },
+      { title: "Sales", href: "/dashboard/sales", icon: BadgeDollarSignIcon },
+      { title: "CRM", href: "/dashboard/crm", icon: ChartBarDecreasingIcon },
+      {
+        title: "Website Analytics",
+        href: "/dashboard/website-analytics",
+        icon: GaugeIcon
+      },
+      {
+        title: "File Manager",
+        href: "/dashboard/file-manager",
+        icon: FolderIcon
+      },
+      { title: "Crypto", href: "/dashboard/crypto", icon: WalletMinimalIcon },
+      { title: "Academy/School", href: "/dashboard/academy", icon: GraduationCapIcon },
+      { title: "Hospital Management", href: "/dashboard/hospital-management", icon: ActivityIcon },
+      {
         title: "Finance Dashboard",
         href: "/dashboard/finance",
         icon: WalletMinimalIcon
-      },
-      {
-        title: "Payment Dashboard",
-        href: "/dashboard/payment",
-        icon: CreditCardIcon,
-        items: [
-          { title: "Dashboard", href: "/dashboard/payment" },
-          { title: "Transactions", href: "/dashboard/payment/transactions" }
-        ]
       }
     ]
   },
