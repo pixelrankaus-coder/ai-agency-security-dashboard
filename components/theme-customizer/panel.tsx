@@ -1,6 +1,6 @@
 "use client";
 
-import { Settings } from "lucide-react";
+import { Palette } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -24,8 +24,8 @@ export function ThemeCustomizerPanel() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button size="icon" variant="ghost">
-          <Settings className="animate-tada" />
+        <Button size="icon-sm" variant="ghost">
+          <Palette />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent

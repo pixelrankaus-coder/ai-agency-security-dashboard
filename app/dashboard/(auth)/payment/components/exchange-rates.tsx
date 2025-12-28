@@ -165,7 +165,7 @@ export function ExchangeRates() {
         <CardTitle>Exchange rates</CardTitle>
         <CardAction>
           <div className="text-muted-foreground -mt-2 flex items-center space-x-2 text-sm">
-            <span>Last updated: 11:08 AM</span>
+            <div><span className="hidden md:inline">Last updated:</span> 11:08 AM</div>
             <Button variant="ghost" size="sm">
               <RefreshCwIcon />
             </Button>
@@ -173,7 +173,7 @@ export function ExchangeRates() {
         </CardAction>
       </CardHeader>
       <CardContent className="space-y-6">
-        <div className="flex flex-col items-center gap-2 lg:flex-row">
+        <div className="flex items-center gap-2">
           <Select defaultValue="eur">
             <SelectTrigger className="w-full">
               <SelectValue />

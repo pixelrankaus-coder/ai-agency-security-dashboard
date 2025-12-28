@@ -76,22 +76,22 @@ export function TeamMembersCard() {
       </CardHeader>
       <CardContent className="grid gap-6">
         {data.map((member, key) => (
-          <div key={key} className="flex items-center justify-between space-x-4">
-            <div className="flex items-center space-x-4">
-              <Avatar>
+          <div key={key} className="flex min-w-0 items-center justify-between gap-4">
+            <div className="flex min-w-0 flex-1 items-center gap-4">
+              <Avatar className="shrink-0">
                 <AvatarImage src={member.avatar} />
                 <AvatarFallback>OM</AvatarFallback>
               </Avatar>
-              <div>
-                <p className="text-sm leading-none font-medium">{member.name}</p>
-                <p className="text-muted-foreground text-sm">{member.email}</p>
+              <div className="min-w-0 flex-1 overflow-hidden">
+                <p className="truncate text-sm leading-none font-medium">{member.name}</p>
+                <p className="text-muted-foreground truncate text-sm">{member.email}</p>
               </div>
             </div>
             <Popover
               open={openIndex === key}
               onOpenChange={(isOpen) => setOpenIndex(isOpen ? key : null)}>
               <PopoverTrigger asChild>
-                <Button variant="outline" className="ml-auto">
+                <Button variant="outline" className="shrink-0">
                   {roles.find((role) => role.id === member.role_id)?.name}{" "}
                   <ChevronsDownIcon className="text-muted-foreground ml-2 h-4 w-4" />
                 </Button>

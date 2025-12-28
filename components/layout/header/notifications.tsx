@@ -21,11 +21,9 @@ const Notifications = () => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button size="icon" variant="ghost" className="relative">
-          <>
-            <BellIcon className="animate-tada" />
-            <span className="bg-destructive absolute end-0 top-0 block size-2 shrink-0 rounded-full"></span>
-          </>
+        <Button size="icon-sm" variant="ghost" className="relative">
+          <BellIcon />
+          <span className="bg-destructive absolute end-0.5 top-0.5 block size-1.5 shrink-0 rounded-full"></span>
         </Button>
       </DropdownMenuTrigger>
 
@@ -33,8 +31,8 @@ const Notifications = () => {
         <DropdownMenuLabel className="bg-background dark:bg-muted sticky top-0 z-10 p-0">
           <div className="flex justify-between border-b px-6 py-4">
             <div className="font-medium">Notifications</div>
-            <Button variant="link" className="h-auto p-0 text-xs" size="sm" asChild>
-              <Link href="#">View all</Link>
+            <Button variant="link" className="h-auto p-0 text-xs" size="icon-sm" asChild>
+              <Link href="/dashboard/pages/notifications">View all</Link>
             </Button>
           </div>
         </DropdownMenuLabel>

@@ -14,7 +14,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default function SettingsLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="space-y-4 lg:space-y-6">
+    <div className="space-y-4 max-w-5xl mx-auto lg:space-y-6">
       <div className="space-y-0.5">
         <h2 className="text-2xl font-bold tracking-tight">Settings</h2>
         <p className="text-muted-foreground">

@@ -12,7 +12,7 @@ export function ResetThemeButton() {
   };
 
   return (
-    <Button variant="destructive" className="mt-4 w-full" onClick={resetThemeHandle}>
+    <Button className="mt-4 w-full" onClick={resetThemeHandle}>
       Reset to Default
     </Button>
   );
