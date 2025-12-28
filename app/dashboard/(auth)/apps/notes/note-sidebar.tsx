@@ -58,11 +58,11 @@ export function NoteSidebarContent() {
 
       <Separator className="my-4" />
 
-      <div className="flex-1">
-        <div className="text-muted-foreground mb-3 px-2 text-sm font-medium">Labels</div>
+      <div className="flex-1 space-y-4">
+        <div className="text-muted-foreground px-2 text-sm font-medium">Labels</div>
         <nav>
           {noteLabels.map((label, key) => (
-            <Button key={key} variant="ghost" className="w-full justify-start font-normal">
+            <Button key={key} variant="ghost" className="w-full h-8 justify-start font-normal">
               <span className={`me-1 size-2 rounded-full ${label.color}`} />
               {label.title}
             </Button>

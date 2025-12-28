@@ -4,7 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { ImageIcon, Tag, PenSquare, Check, Trash2Icon, ArchiveIcon } from "lucide-react";
-import { MinimalTiptapEditor } from "@/components/ui/custom/minimal-tiptap";
+import { RichTextEditorDemo } from "@/components/ui/custom/tiptap/rich-text-editor";
 import { Content } from "@tiptap/react";
 
 import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
@@ -71,19 +71,18 @@ export function AddNoteModal() {
             <Input
               placeholder="Title"
               name="title"
-              className="mb-4 rounded-none border-0 px-0 text-xl focus-visible:ring-0"
+              className="mb-4 rounded-none border-0 px-0 text-2xl! shadow-none bg-transparent! focus-visible:ring-0"
             />
 
-            <MinimalTiptapEditor
-              value={value}
-              onChange={setValue}
+            <RichTextEditorDemo
+              value={value as string}
+              onChange={(value) => setValue(value as Content)}
               className="w-full"
-              editorContentClassName="p-5"
+              editorContentClassName="p-4"
               output="html"
               placeholder="Enter note description..."
               autofocus={true}
               editable={true}
-              editorClassName="focus:outline-hidden"
             />
           </div>
 
