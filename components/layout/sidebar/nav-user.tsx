@@ -21,7 +21,7 @@ import { DotsVerticalIcon } from "@radix-ui/react-icons";
 
 const userData = {
   name: "Admin User",
-  email: "admin@secscan.local",
+  email: "admin@ai-agency.local",
   avatar: "/images/avatars/01.png"
 };
 

@@ -70,7 +70,7 @@ export const crawlerScanner: Scanner = {
         method: "GET",
         redirect: "follow",
         headers: {
-          "User-Agent": "SecScan-Security-Scanner/1.0",
+          "User-Agent": "Ai Agency-Security-Scanner/1.0",
         },
       });
 
@@ -111,7 +111,7 @@ export const crawlerScanner: Scanner = {
             method: "HEAD",
             redirect: "manual",
             headers: {
-              "User-Agent": "SecScan-Security-Scanner/1.0",
+              "User-Agent": "Ai Agency-Security-Scanner/1.0",
             },
           });
 

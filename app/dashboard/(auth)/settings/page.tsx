@@ -240,7 +240,7 @@ export default function SettingsPage() {
       {/* About */}
       <Card>
         <CardHeader>
-          <CardTitle>About SecScan</CardTitle>
+          <CardTitle>About Ai Agency</CardTitle>
           <CardDescription>
             Security scanner dashboard powered by industry-standard tools
           </CardDescription>

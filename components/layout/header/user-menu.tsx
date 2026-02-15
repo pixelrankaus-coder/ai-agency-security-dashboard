@@ -29,7 +29,7 @@ export default function UserMenu() {
             </Avatar>
             <div className="grid flex-1 text-left text-sm leading-tight">
               <span className="truncate font-semibold">Admin User</span>
-              <span className="text-muted-foreground truncate text-xs">admin@secscan.local</span>
+              <span className="text-muted-foreground truncate text-xs">admin@ai-agency.local</span>
             </div>
           </div>
         </DropdownMenuLabel>

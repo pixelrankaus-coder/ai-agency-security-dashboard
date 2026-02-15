@@ -49,7 +49,7 @@ export const safeBrowsingScanner: Scanner = {
 
       const requestBody: SafeBrowsingRequest = {
         client: {
-          clientId: "secscan-dashboard",
+          clientId: "ai-agency-dashboard",
           clientVersion: "1.0.0",
         },
         threatInfo: {

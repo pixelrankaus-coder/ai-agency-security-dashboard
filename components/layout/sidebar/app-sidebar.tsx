@@ -58,7 +58,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                     <span className="text-2xl">🛡️</span>
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-foreground text-base font-bold">SecScan</span>
+                    <span className="text-foreground text-base font-bold">Ai Agency</span>
                     <span className="text-xs text-muted-foreground">Security Dashboard</span>
                   </div>
                   <ChevronsUpDown className="ml-auto group-data-[collapsible=icon]:hidden" />
@@ -76,7 +76,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                     <span className="text-lg">🛡️</span>
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-sm font-medium">SecScan Dashboard</span>
+                    <span className="text-sm font-medium">Ai Agency Dashboard</span>
                     <span className="text-xs text-green-700">Active</span>
                   </div>
                 </DropdownMenuItem>
