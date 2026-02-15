@@ -9,6 +9,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import { checkHealth } from "@/lib/api";
+import { useDemoContext } from "@/lib/demo-context";
 import { HealthStatus } from "@/types";
 import { SCANNER_INFO } from "@/lib/scanner-info";
 import {
@@ -18,9 +19,11 @@ import {
   Shield,
   RefreshCw,
   ExternalLink,
+  AlertTriangle,
 } from "lucide-react";
 
 export default function SettingsPage() {
+  const { isDemo, retryBackend } = useDemoContext();
   const [health, setHealth] = useState<HealthStatus | null>(null);
   const [loading, setLoading] = useState(true);
   const [checking, setChecking] = useState(false);
@@ -48,10 +51,14 @@ export default function SettingsPage() {
   async function checkConnection() {
     setChecking(true);
     try {
+      // Retry backend connection (will update demo mode status)
+      await retryBackend();
+
+      // Then check health
       const data = await checkHealth();
       setHealth(data);
     } catch (error) {
-      console.log("Failed to check health");
+      // Silent failure
       setHealth(null);
     } finally {
       setLoading(false);
@@ -79,6 +86,22 @@ export default function SettingsPage() {
 
   return (
     <div className="space-y-6">
+      {isDemo && (
+        <div className="bg-amber-50 dark:bg-amber-950 border border-amber-200 dark:border-amber-800 rounded-lg p-4">
+          <div className="flex items-center gap-2">
+            <AlertTriangle className="h-5 w-5 text-amber-600 dark:text-amber-400" />
+            <div className="flex-1">
+              <p className="font-medium text-amber-900 dark:text-amber-100">
+                Demo Mode - Backend Unavailable
+              </p>
+              <p className="text-sm text-amber-700 dark:text-amber-300">
+                Click the refresh button below to retry connecting to the backend.
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+
       <div>
         <h1 className="text-3xl font-bold">Settings</h1>
         <p className="text-muted-foreground mt-1">
@@ -112,13 +135,27 @@ export default function SettingsPage() {
           {/* Connection Status */}
           <div className="rounded-lg border p-4">
             <div className="flex items-center gap-3">
-              <CheckCircle2 className="h-5 w-5 text-green-600" />
-              <div className="flex-1">
-                <p className="font-medium text-green-600">API Connected</p>
-                <p className="text-muted-foreground text-xs">
-                  Built-in API is running (no external backend required)
-                </p>
-              </div>
+              {isDemo ? (
+                <>
+                  <XCircle className="h-5 w-5 text-amber-600" />
+                  <div className="flex-1">
+                    <p className="font-medium text-amber-600">Demo Mode Active</p>
+                    <p className="text-muted-foreground text-xs">
+                      Backend API is unavailable. Using sample data for demonstration.
+                    </p>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <CheckCircle2 className="h-5 w-5 text-green-600" />
+                  <div className="flex-1">
+                    <p className="font-medium text-green-600">API Connected</p>
+                    <p className="text-muted-foreground text-xs">
+                      Backend API is running and responsive
+                    </p>
+                  </div>
+                </>
+              )}
             </div>
           </div>
 

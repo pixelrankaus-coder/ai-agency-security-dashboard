@@ -20,15 +20,17 @@ import {
   ScanProgressBar,
 } from "@/components/security";
 import { fetchScan } from "@/lib/api";
+import { useDemoContext } from "@/lib/demo-context";
 import type { ScanDetail } from "@/types";
 import { SCANNER_INFO } from "@/lib/scanner-info";
 import { format, formatDistanceToNow } from "date-fns";
-import { ChevronLeft, Download, CheckCircle2, XCircle, Clock } from "lucide-react";
+import { ChevronLeft, Download, CheckCircle2, XCircle, Clock, AlertTriangle } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { toast } from "sonner";
 
 export default function ScanDetailPage() {
+  const { isDemo, getMockScans } = useDemoContext();
   const params = useParams();
   const id = params?.id as string;
   const [scan, setScan] = useState<ScanDetail | null>(null);
@@ -37,10 +39,11 @@ export default function ScanDetailPage() {
 
   useEffect(() => {
     loadScan();
-  }, [id]);
+  }, [id, isDemo]);
 
-  // Auto-refresh for active scans
+  // Auto-refresh for active scans (only in live mode)
   useEffect(() => {
+    if (isDemo) return; // No polling in demo mode
     if (!scan) return;
     if (scan.status !== "scanning" && scan.status !== "analysing") return;
 
@@ -49,14 +52,34 @@ export default function ScanDetailPage() {
     }, 5000); // 5 second interval
 
     return () => clearInterval(interval);
-  }, [scan]);
+  }, [scan, isDemo]);
 
   async function loadScan() {
+    if (isDemo) {
+      // Use mock data in demo mode
+      const mockScans = getMockScans();
+      const mockScan = mockScans.find((s) => s.id === id);
+      if (mockScan) {
+        // Convert to ScanDetail with additional fields
+        setScan({
+          ...mockScan,
+          scanner_results: [],
+          findings: [],
+          ai_analysis: "This is a demo scan. In live mode, you would see real security analysis here.",
+        } as ScanDetail);
+      } else {
+        setScan(null);
+      }
+      setLoading(false);
+      return;
+    }
+
+    // Live mode - try API call
     try {
       const data = await fetchScan(id);
       setScan(data);
     } catch (error) {
-      console.error("Failed to load scan:", error);
+      // Silent failure - demo context handles switching to demo mode
       setScan(null);
     } finally {
       setLoading(false);
@@ -105,6 +128,22 @@ export default function ScanDetailPage() {
 
   return (
     <div className="space-y-6">
+      {isDemo && (
+        <div className="bg-amber-50 dark:bg-amber-950 border border-amber-200 dark:border-amber-800 rounded-lg p-4">
+          <div className="flex items-center gap-2">
+            <AlertTriangle className="h-5 w-5 text-amber-600 dark:text-amber-400" />
+            <div>
+              <p className="font-medium text-amber-900 dark:text-amber-100">
+                Demo Mode - Using Sample Data
+              </p>
+              <p className="text-sm text-amber-700 dark:text-amber-300">
+                Backend is unavailable. Showing sample data for demonstration.
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+
       <div className="flex items-center gap-2">
         <Button variant="ghost" size="sm" asChild>
           <Link href="/dashboard/scans">
@@ -178,15 +217,17 @@ export default function ScanDetailPage() {
               )}
 
               {scan.report_url && (
-                <Button asChild>
-                  <a
-                    href={scan.report_url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Download className="mr-2 h-4 w-4" />
-                    Download Report
-                  </a>
+                <Button
+                  onClick={() => {
+                    if (isDemo) {
+                      toast.info("Report download available when backend is connected");
+                    } else {
+                      window.open(scan.report_url, "_blank");
+                    }
+                  }}
+                >
+                  <Download className="mr-2 h-4 w-4" />
+                  Download Report
                 </Button>
               )}
             </div>

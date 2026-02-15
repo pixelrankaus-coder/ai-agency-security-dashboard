@@ -15,20 +15,33 @@ import {
 import { Skeleton } from "@/components/ui/skeleton";
 import { StatusBadge, SeveritySummaryBar } from "@/components/security";
 import { fetchScans, checkHealth } from "@/lib/api";
+import { useDemoContext } from "@/lib/demo-context";
 import type { Scan, HealthStatus } from "@/types";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer } from "recharts";
 import { format } from "date-fns";
 
 export default function DashboardPage() {
+  const { isDemo, getMockScans, getMockHealth } = useDemoContext();
   const [scans, setScans] = useState<Scan[]>([]);
   const [health, setHealth] = useState<HealthStatus | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     loadData();
-  }, []);
+  }, [isDemo]);
 
   async function loadData() {
+    setLoading(true);
+
+    if (isDemo) {
+      // Use mock data in demo mode - no API calls, no console spam
+      setScans(getMockScans());
+      setHealth(getMockHealth());
+      setLoading(false);
+      return;
+    }
+
+    // Live mode - try API call
     try {
       const [scansData, healthData] = await Promise.all([
         fetchScans({ limit: 10 }),
@@ -37,7 +50,7 @@ export default function DashboardPage() {
       setScans(scansData);
       setHealth(healthData);
     } catch (error) {
-      console.error("Failed to load dashboard data:", error);
+      // Silent failure - demo context will handle switching to demo mode
       setScans([]);
       setHealth(null);
     } finally {
@@ -117,6 +130,21 @@ export default function DashboardPage() {
 
   return (
     <div className="space-y-6">
+      {isDemo && (
+        <div className="bg-amber-50 dark:bg-amber-950 border border-amber-200 dark:border-amber-800 rounded-lg p-4">
+          <div className="flex items-center gap-2">
+            <AlertTriangle className="h-5 w-5 text-amber-600 dark:text-amber-400" />
+            <div>
+              <p className="font-medium text-amber-900 dark:text-amber-100">
+                Demo Mode - Using Sample Data
+              </p>
+              <p className="text-sm text-amber-700 dark:text-amber-300">
+                Backend is unavailable. Showing sample data for demonstration.
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
 
       <div className="flex items-center justify-between">
         <div>
