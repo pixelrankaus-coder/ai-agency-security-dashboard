@@ -102,11 +102,30 @@ async function runScanInBackground(
 
   try {
     // Run scanners sequentially, updating progress
-    const results = await runScanners(url, scannerNames);
+    const scanResults = await runScanners(url, scannerNames);
 
     // Get scan to update
     let scan = await getScan(scanId);
     if (!scan) return;
+
+    // Transform ScanResult[] to ScannerResult[] - ensure type field is present
+    const results = scanResults.map((result) => ({
+      ...result,
+      findings: result.findings.map((finding) => ({
+        type: finding.type || "general",
+        severity: finding.severity,
+        description: finding.description,
+        recommendation: finding.recommendation,
+        url: finding.affected_url,
+        path: finding.path,
+        header: finding.header,
+        value: finding.value,
+        technologies: finding.technologies,
+        metadata: finding.evidence
+          ? { ...finding, evidence: finding.evidence }
+          : finding,
+      })),
+    }));
 
     // Update with results
     await updateScan(scanId, {
@@ -117,7 +136,7 @@ async function runScanInBackground(
     });
 
     // Calculate summary
-    const allFindings = results.flatMap((r) => r.findings);
+    const allFindings = scanResults.flatMap((r) => r.findings);
     const severity_counts = {
       critical: allFindings.filter((f) => f.severity === "critical").length,
       high: allFindings.filter((f) => f.severity === "high").length,
