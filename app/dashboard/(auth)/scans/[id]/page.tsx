@@ -60,13 +60,37 @@ export default function ScanDetailPage() {
       const mockScans = getMockScans();
       const mockScan = mockScans.find((s) => s.id === id);
       if (mockScan) {
-        // Convert to ScanDetail with additional fields
-        setScan({
-          ...mockScan,
-          scanner_results: [],
-          findings: [],
-          ai_analysis: "This is a demo scan. In live mode, you would see real security analysis here.",
-        } as ScanDetail);
+        // Create a proper ScanDetail object (legacy type compatibility)
+        const scanDetail: ScanDetail = {
+          id: mockScan.id,
+          site_id: mockScan.site_id,
+          company_id: mockScan.company_id,
+          started_by: mockScan.started_by,
+          url: mockScan.url,
+          scanners: mockScan.scanners,
+          status: mockScan.status,
+          progress: mockScan.progress,
+          current_scanner: mockScan.current_scanner,
+          results: [], // ScannerResultLegacy[]
+          analysis: "This is a demo scan. In live mode, you would see real AI-powered security analysis here.",
+          total_findings: mockScan.total_findings,
+          severity_counts: {
+            critical: mockScan.severity_counts?.critical || 0,
+            high: mockScan.severity_counts?.high || 0,
+            medium: mockScan.severity_counts?.medium || 0,
+            low: mockScan.severity_counts?.low || 0,
+            info: mockScan.severity_counts?.info || 0,
+          },
+          grade: mockScan.grade,
+          score: mockScan.score,
+          report_url: mockScan.report_url,
+          error: mockScan.error,
+          duration_seconds: mockScan.duration_seconds,
+          created_at: mockScan.created_at,
+          completed_at: mockScan.completed_at,
+          updated_at: mockScan.updated_at,
+        };
+        setScan(scanDetail);
       } else {
         setScan(null);
       }
