@@ -154,7 +154,7 @@ async function runScanInBackground(
     let analysis: string | null = null;
     if (!skipAI) {
       try {
-        analysis = await analyseWithAI(url, results);
+        analysis = await analyseWithAI(url, scanResults);
       } catch (err) {
         console.error("AI analysis failed:", err);
         analysis = "AI analysis failed. See results below for details.";
@@ -181,7 +181,7 @@ async function runScanInBackground(
       scan_id: scanId,
       site_id: scan.site_id,
       company_id: scan.company_id,
-      scanner: results.find((r) => r.findings.includes(finding))?.scanner || "",
+      scanner: scanResults.find((r) => r.findings.includes(finding))?.scanner || "",
       severity: finding.severity,
       type: finding.type || "unknown",
       description: finding.description,

@@ -7,6 +7,8 @@ export interface ScanResult {
   findings: Finding[];
   error: string;
   duration_seconds: number;
+  grade?: string;
+  score?: number;
   metadata?: Record<string, unknown>;
 }
 

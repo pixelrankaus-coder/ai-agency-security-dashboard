@@ -154,17 +154,10 @@ export default function ScansPage() {
 
     try {
       await deleteScan(scanToDelete.id);
-      toast({
-        title: "Scan deleted",
-        description: `Scan for ${scanToDelete.url} has been deleted.`,
-      });
+      toast.success(`Scan for ${scanToDelete.url} has been deleted.`);
       await loadScans(); // Reload scans list
     } catch (error) {
-      toast({
-        title: "Error",
-        description: "Failed to delete scan. Please try again.",
-        variant: "destructive",
-      });
+      toast.error("Failed to delete scan. Please try again.");
     } finally {
       setDeleteDialogOpen(false);
       setScanToDelete(null);
@@ -190,10 +183,7 @@ export default function ScansPage() {
       statusMatch = scan.status === "scanning" || scan.status === "analysing" || scan.status === "queued";
     else if (filter === "error") statusMatch = scan.status === "error";
 
-    // Apply client filter if set
-    const clientMatch = !clientFilter || scan.client_name === clientFilter;
-
-    return statusMatch && clientMatch;
+    return statusMatch;
   });
 
   if (loading) {
@@ -275,7 +265,6 @@ export default function ScansPage() {
                   <TableHeader>
                     <TableRow>
                       <TableHead>URL</TableHead>
-                      <TableHead>Client</TableHead>
                       <TableHead>Status</TableHead>
                       <TableHead>Scanners</TableHead>
                       <TableHead>Findings</TableHead>
@@ -303,7 +292,6 @@ export default function ScansPage() {
                         }
                       >
                         <TableCell className="font-medium">{scan.url}</TableCell>
-                        <TableCell>{scan.client_name || "—"}</TableCell>
                         <TableCell>
                           <div className="space-y-2">
                             <StatusBadge
@@ -336,8 +324,8 @@ export default function ScansPage() {
                           </div>
                         </TableCell>
                         <TableCell>
-                          {scan.summary ? (
-                            <SeveritySummaryBar severities={scan.summary.severities} />
+                          {scan.severity_counts ? (
+                            <SeveritySummaryBar severities={scan.severity_counts} />
                           ) : (
                             "—"
                           )}

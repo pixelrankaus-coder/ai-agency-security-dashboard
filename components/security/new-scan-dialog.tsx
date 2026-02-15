@@ -114,6 +114,12 @@ export function NewScanDialog({ onScanCreated, onScanAdded, onScanStarted, defau
         });
       }
 
+      if (!site) {
+        setError("Failed to create site");
+        setLoading(false);
+        return;
+      }
+
       // Start scan with site_id
       const result = await startScan({
         site_id: site.id,

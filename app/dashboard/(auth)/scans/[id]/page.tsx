@@ -97,9 +97,9 @@ export default function ScanDetailPage() {
       )
     : null;
 
-  const worstSeverity = scan.summary
+  const worstSeverity = scan.severity_counts
     ? (["critical", "high", "medium", "low", "info"] as const).find(
-        (severity) => (scan.summary?.severities[severity] || 0) > 0
+        (severity) => (scan.severity_counts[severity] || 0) > 0
       ) || "info"
     : "info";
 
@@ -132,10 +132,6 @@ export default function ScanDetailPage() {
 
               <h1 className="break-all text-2xl font-bold lg:text-3xl">{scan.url}</h1>
 
-              {scan.client_name && (
-                <p className="text-muted-foreground">Client: {scan.client_name}</p>
-              )}
-
               <div className="text-muted-foreground flex flex-wrap gap-x-4 gap-y-1 text-sm">
                 <div className="flex items-center gap-1">
                   <Clock className="h-4 w-4" />
@@ -156,7 +152,7 @@ export default function ScanDetailPage() {
 
             <div className="flex flex-col gap-3 lg:items-end">
               {/* Score Circle */}
-              {scan.summary && (
+              {scan.total_findings !== undefined && (
                 <div className="flex items-center gap-4">
                   <div
                     className={`flex h-20 w-20 flex-col items-center justify-center rounded-full border-4 ${
@@ -170,39 +166,28 @@ export default function ScanDetailPage() {
                     }`}
                   >
                     <div className="text-2xl font-bold">
-                      {scan.summary.total_findings}
+                      {scan.total_findings}
                     </div>
                     <div className="text-xs">findings</div>
                   </div>
                 </div>
               )}
 
-              {scan.summary && (
-                <SeveritySummaryBar severities={scan.summary.severities} />
+              {scan.severity_counts && (
+                <SeveritySummaryBar severities={scan.severity_counts} />
               )}
 
-              {scan.report_file && (
-                isDemo ? (
-                  <Button
-                    onClick={() =>
-                      toast.info("Report download available when backend is connected")
-                    }
+              {scan.report_url && (
+                <Button asChild>
+                  <a
+                    href={scan.report_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     <Download className="mr-2 h-4 w-4" />
                     Download Report
-                  </Button>
-                ) : (
-                  <Button asChild>
-                    <a
-                      href={`/api/reports/${scan.report_file}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <Download className="mr-2 h-4 w-4" />
-                      Download Report
-                    </a>
-                  </Button>
-                )
+                  </a>
+                </Button>
               )}
             </div>
           </div>
@@ -311,38 +296,6 @@ export default function ScanDetailPage() {
         </Card>
       )}
 
-      {/* Raw Data Section */}
-      {scan.json_file && (
-        <Card>
-          <CardHeader>
-            <CardTitle>Raw Scan Data</CardTitle>
-          </CardHeader>
-          <CardContent>
-            {isDemo ? (
-              <Button
-                variant="outline"
-                onClick={() =>
-                  toast.info("JSON download available when backend is connected")
-                }
-              >
-                <Download className="mr-2 h-4 w-4" />
-                Download JSON
-              </Button>
-            ) : (
-              <Button variant="outline" asChild>
-                <a
-                  href={`/api/reports/${scan.json_file}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Download className="mr-2 h-4 w-4" />
-                  Download JSON
-                </a>
-              </Button>
-            )}
-          </CardContent>
-        </Card>
-      )}
     </div>
   );
 }
