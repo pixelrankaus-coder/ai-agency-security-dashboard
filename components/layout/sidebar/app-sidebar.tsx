@@ -54,8 +54,13 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <SidebarMenuButton className="hover:text-foreground h-10 group-data-[collapsible=icon]:px-0! hover:bg-[var(--primary)]/5">
-                  <Logo />
-                  <span className="text-foreground font-semibold">Shadcn UI Kit</span>
+                  <div className="flex size-8 items-center justify-center rounded-lg bg-primary/10">
+                    <span className="text-2xl">🛡️</span>
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="text-foreground text-base font-bold">SecScan</span>
+                    <span className="text-xs text-muted-foreground">Security Dashboard</span>
+                  </div>
                   <ChevronsUpDown className="ml-auto group-data-[collapsible=icon]:hidden" />
                 </SidebarMenuButton>
               </DropdownMenuTrigger>
@@ -64,31 +69,17 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                 side={isMobile ? "bottom" : "right"}
                 align="end"
                 sideOffset={4}>
-                <DropdownMenuLabel>Projects</DropdownMenuLabel>
+                <DropdownMenuLabel>Security Scanner</DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem className="flex items-center gap-3">
                   <div className="flex size-8 items-center justify-center rounded-md border">
-                    <ShoppingBagIcon className="text-muted-foreground size-4" />
+                    <span className="text-lg">🛡️</span>
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-sm font-medium">E-commerce</span>
+                    <span className="text-sm font-medium">SecScan Dashboard</span>
                     <span className="text-xs text-green-700">Active</span>
                   </div>
                 </DropdownMenuItem>
-                <DropdownMenuItem className="flex items-center gap-3">
-                  <div className="flex size-8 items-center justify-center rounded-md border">
-                    <UserCircle2Icon className="text-muted-foreground size-4" />
-                  </div>
-                  <div className="flex flex-col">
-                    <span className="text-sm font-medium">Blog Platform</span>
-                    <span className="text-muted-foreground text-xs">Inactive</span>
-                  </div>
-                </DropdownMenuItem>
-                <DropdownMenuSeparator />
-                <Button className="w-full">
-                  <PlusIcon />
-                  New Project
-                </Button>
               </DropdownMenuContent>
             </DropdownMenu>
           </SidebarMenuItem>
@@ -102,16 +93,14 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       <SidebarFooter>
         <Card className="gap-4 overflow-hidden py-4 group-data-[collapsible=icon]:hidden">
           <CardHeader className="px-3">
-            <CardTitle>Download</CardTitle>
+            <CardTitle>Need Help?</CardTitle>
             <CardDescription>
-              Unlock lifetime access to all dashboards, templates and components.
+              View scanner documentation and security best practices.
             </CardDescription>
           </CardHeader>
           <CardContent className="px-3">
-            <Button className="w-full" asChild>
-              <Link href="https://shadcnuikit.com/pricing" target="_blank">
-                Get Shadcn UI Kit
-              </Link>
+            <Button className="w-full" variant="outline">
+              Documentation
             </Button>
           </CardContent>
         </Card>

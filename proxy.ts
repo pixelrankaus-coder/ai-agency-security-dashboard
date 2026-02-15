@@ -1,7 +1,9 @@
 import { NextResponse, type NextRequest } from "next/server";
 
 export function proxy(request: NextRequest) {
-  return NextResponse.redirect(new URL("/dashboard/default", request.url));
+  // No redirect - let Next.js routing handle dashboard pages naturally
+  // /dashboard -> renders app/dashboard/(auth)/page.tsx (SecScan Dashboard)
+  return NextResponse.next();
 }
 
 export const config = {
