@@ -245,7 +245,7 @@ export default function ScanDetailPage() {
                   onClick={() => {
                     if (isDemo) {
                       toast.info("Report download available when backend is connected");
-                    } else {
+                    } else if (scan.report_url) {
                       window.open(scan.report_url, "_blank");
                     }
                   }}
