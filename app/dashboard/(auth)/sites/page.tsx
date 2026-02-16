@@ -24,7 +24,6 @@ import { Badge } from "@/components/ui/badge";
 import { AddSiteDialog } from "@/components/security/add-site-dialog";
 import { SeveritySummaryBar } from "@/components/security";
 import { fetchSites, deleteSite, fetchScans } from "@/lib/api";
-import { useDemoContext } from "@/lib/demo-context";
 import type { Site, Scan } from "@/types";
 import {
   MoreVertical,
@@ -40,7 +39,6 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 export default function SitesPage() {
-  const { isDemo, getMockSites, getMockScans } = useDemoContext();
   const router = useRouter();
   const [sites, setSites] = useState<Site[]>([]);
   const [scans, setScans] = useState<Scan[]>([]);
@@ -50,18 +48,9 @@ export default function SitesPage() {
 
   useEffect(() => {
     loadData();
-  }, [isDemo]);
+  }, []);
 
   async function loadData() {
-    if (isDemo) {
-      // Use mock data in demo mode - no API calls, no console spam
-      setSites(getMockSites());
-      setScans(getMockScans());
-      setLoading(false);
-      return;
-    }
-
-    // Live mode - try API call
     try {
       const [sitesData, scansData] = await Promise.all([
         fetchSites(),
@@ -70,7 +59,7 @@ export default function SitesPage() {
       setSites(sitesData);
       setScans(scansData);
     } catch (error) {
-      // Silent failure - demo context handles switching to demo mode
+      // Handle error
     } finally {
       setLoading(false);
     }
@@ -83,20 +72,11 @@ export default function SitesPage() {
   async function handleDelete() {
     if (!siteToDelete) return;
 
-    if (isDemo) {
-      // In demo mode, just remove from local state
-      setSites(sites.filter((s) => s.id !== siteToDelete.id));
-      setDeleteDialogOpen(false);
-      setSiteToDelete(null);
-      return;
-    }
-
-    // Live mode
     try {
       await deleteSite(siteToDelete.id);
       await loadData();
     } catch (error) {
-      // Silent failure
+      // Handle error
     } finally {
       setDeleteDialogOpen(false);
       setSiteToDelete(null);
@@ -155,22 +135,6 @@ export default function SitesPage() {
 
   return (
     <div className="space-y-6">
-      {isDemo && (
-        <div className="bg-amber-50 dark:bg-amber-950 border border-amber-200 dark:border-amber-800 rounded-lg p-4">
-          <div className="flex items-center gap-2">
-            <AlertTriangle className="h-5 w-5 text-amber-600 dark:text-amber-400" />
-            <div>
-              <p className="font-medium text-amber-900 dark:text-amber-100">
-                Demo Mode - Using Sample Data
-              </p>
-              <p className="text-sm text-amber-700 dark:text-amber-300">
-                Backend is unavailable. Showing sample data for demonstration.
-              </p>
-            </div>
-          </div>
-        </div>
-      )}
-
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-3xl font-bold">Sites</h1>

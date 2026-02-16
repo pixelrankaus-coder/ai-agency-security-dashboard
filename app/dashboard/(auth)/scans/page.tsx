@@ -36,7 +36,6 @@ import { Button } from "@/components/ui/button";
 import { StatusBadge, SeveritySummaryBar, ScanProgressBar, ScanProgressModal } from "@/components/security";
 import { NewScanDialog } from "@/components/security/new-scan-dialog";
 import { fetchScans, deleteScan } from "@/lib/api";
-import { useDemoContext } from "@/lib/demo-context";
 import type { Scan } from "@/types";
 import { SCANNER_INFO } from "@/lib/scanner-info";
 import { format } from "date-fns";
@@ -44,7 +43,6 @@ import { MoreVertical, Trash2, AlertTriangle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 export default function ScansPage() {
-  const { isDemo, getMockScans } = useDemoContext();
   const router = useRouter();
   const searchParams = useSearchParams();
   const [scans, setScans] = useState<Scan[]>([]);
@@ -65,7 +63,7 @@ export default function ScansPage() {
     if (clientParam) {
       setClientFilter(clientParam);
     }
-  }, [searchParams, isDemo]);
+  }, [searchParams]);
 
   // Detect completed scans and show notifications
   useEffect(() => {
@@ -114,10 +112,8 @@ export default function ScansPage() {
     });
   }, [scans, router]);
 
-  // Auto-refresh when there are active scans (only in live mode, not demo)
+  // Auto-refresh when there are active scans
   useEffect(() => {
-    if (isDemo) return; // No polling in demo mode
-
     const hasActive = scans.some(
       (s) => s.status === "scanning" || s.status === "analysing"
     );
@@ -128,22 +124,13 @@ export default function ScansPage() {
     }, 5000); // 5 second interval
 
     return () => clearInterval(interval);
-  }, [scans, isDemo]);
+  }, [scans]);
 
   async function loadScans() {
-    if (isDemo) {
-      // Use mock data in demo mode - no API calls, no console spam
-      setScans(getMockScans());
-      setLoading(false);
-      return;
-    }
-
-    // Live mode - try API call
     try {
       const data = await fetchScans({ limit: 50 });
       setScans(data);
     } catch (error) {
-      // Silent failure - demo context handles switching to demo mode
       setScans([]);
     } finally {
       setLoading(false);
@@ -209,22 +196,6 @@ export default function ScansPage() {
 
   return (
     <div className="space-y-6">
-      {isDemo && (
-        <div className="bg-amber-50 dark:bg-amber-950 border border-amber-200 dark:border-amber-800 rounded-lg p-4">
-          <div className="flex items-center gap-2">
-            <AlertTriangle className="h-5 w-5 text-amber-600 dark:text-amber-400" />
-            <div>
-              <p className="font-medium text-amber-900 dark:text-amber-100">
-                Demo Mode - Using Sample Data
-              </p>
-              <p className="text-sm text-amber-700 dark:text-amber-300">
-                Backend is unavailable. Showing sample data for demonstration.
-              </p>
-            </div>
-          </div>
-        </div>
-      )}
-
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-3xl font-bold">Security Scans</h1>

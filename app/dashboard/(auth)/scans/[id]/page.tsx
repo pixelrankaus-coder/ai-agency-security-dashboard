@@ -20,7 +20,6 @@ import {
   ScanProgressBar,
 } from "@/components/security";
 import { fetchScan } from "@/lib/api";
-import { useDemoContext } from "@/lib/demo-context";
 import type { ScanDetail } from "@/types";
 import { SCANNER_INFO } from "@/lib/scanner-info";
 import { format, formatDistanceToNow } from "date-fns";
@@ -30,7 +29,6 @@ import remarkGfm from "remark-gfm";
 import { toast } from "sonner";
 
 export default function ScanDetailPage() {
-  const { isDemo, getMockScans } = useDemoContext();
   const params = useParams();
   const id = params?.id as string;
   const [scan, setScan] = useState<ScanDetail | null>(null);
@@ -39,11 +37,10 @@ export default function ScanDetailPage() {
 
   useEffect(() => {
     loadScan();
-  }, [id, isDemo]);
+  }, [id]);
 
-  // Auto-refresh for active scans (only in live mode)
+  // Auto-refresh for active scans
   useEffect(() => {
-    if (isDemo) return; // No polling in demo mode
     if (!scan) return;
     if (scan.status !== "scanning" && scan.status !== "analysing") return;
 
@@ -52,58 +49,13 @@ export default function ScanDetailPage() {
     }, 5000); // 5 second interval
 
     return () => clearInterval(interval);
-  }, [scan, isDemo]);
+  }, [scan]);
 
   async function loadScan() {
-    if (isDemo) {
-      // Use mock data in demo mode
-      const mockScans = getMockScans();
-      const mockScan = mockScans.find((s) => s.id === id);
-      if (mockScan) {
-        // Create a proper ScanDetail object (legacy type compatibility)
-        const scanDetail: ScanDetail = {
-          id: mockScan.id,
-          site_id: mockScan.site_id,
-          company_id: mockScan.company_id,
-          started_by: mockScan.started_by,
-          url: mockScan.url,
-          scanners: mockScan.scanners,
-          status: mockScan.status,
-          progress: mockScan.progress,
-          current_scanner: mockScan.current_scanner,
-          results: [], // ScannerResultLegacy[]
-          analysis: "This is a demo scan. In live mode, you would see real AI-powered security analysis here.",
-          total_findings: mockScan.total_findings,
-          severity_counts: {
-            critical: mockScan.severity_counts?.critical || 0,
-            high: mockScan.severity_counts?.high || 0,
-            medium: mockScan.severity_counts?.medium || 0,
-            low: mockScan.severity_counts?.low || 0,
-            info: mockScan.severity_counts?.info || 0,
-          },
-          grade: mockScan.grade,
-          score: mockScan.score,
-          report_url: mockScan.report_url,
-          error: mockScan.error,
-          duration_seconds: mockScan.duration_seconds,
-          created_at: mockScan.created_at,
-          completed_at: mockScan.completed_at,
-          updated_at: mockScan.updated_at,
-        };
-        setScan(scanDetail);
-      } else {
-        setScan(null);
-      }
-      setLoading(false);
-      return;
-    }
-
-    // Live mode - try API call
     try {
       const data = await fetchScan(id);
       setScan(data);
     } catch (error) {
-      // Silent failure - demo context handles switching to demo mode
       setScan(null);
     } finally {
       setLoading(false);
@@ -152,22 +104,6 @@ export default function ScanDetailPage() {
 
   return (
     <div className="space-y-6">
-      {isDemo && (
-        <div className="bg-amber-50 dark:bg-amber-950 border border-amber-200 dark:border-amber-800 rounded-lg p-4">
-          <div className="flex items-center gap-2">
-            <AlertTriangle className="h-5 w-5 text-amber-600 dark:text-amber-400" />
-            <div>
-              <p className="font-medium text-amber-900 dark:text-amber-100">
-                Demo Mode - Using Sample Data
-              </p>
-              <p className="text-sm text-amber-700 dark:text-amber-300">
-                Backend is unavailable. Showing sample data for demonstration.
-              </p>
-            </div>
-          </div>
-        </div>
-      )}
-
       <div className="flex items-center gap-2">
         <Button variant="ghost" size="sm" asChild>
           <Link href="/dashboard/scans">
@@ -243,9 +179,7 @@ export default function ScanDetailPage() {
               {scan.report_url && (
                 <Button
                   onClick={() => {
-                    if (isDemo) {
-                      toast.info("Report download available when backend is connected");
-                    } else if (scan.report_url) {
+                    if (scan.report_url) {
                       window.open(scan.report_url, "_blank");
                     }
                   }}

@@ -25,7 +25,6 @@ import {
 import { Checkbox } from "@/components/ui/checkbox";
 import { PlusIcon, Loader2 } from "lucide-react";
 import { startScan, fetchSites, createSite } from "@/lib/api";
-import { useDemoContext } from "@/lib/demo-context";
 import type { Site, Scan } from "@/types";
 import { SCANNER_INFO } from "@/lib/scanner-info";
 
@@ -38,7 +37,6 @@ interface NewScanDialogProps {
 }
 
 export function NewScanDialog({ onScanCreated, onScanAdded, onScanStarted, defaultUrl, defaultClient }: NewScanDialogProps) {
-  const { isDemo } = useDemoContext();
   const router = useRouter();
   const [open, setOpen] = useState(false);
   const [url, setUrl] = useState("");
@@ -62,17 +60,10 @@ export function NewScanDialog({ onScanCreated, onScanAdded, onScanStarted, defau
   }, [open, defaultUrl, defaultClient]);
 
   async function loadSites() {
-    if (isDemo) {
-      // In demo mode, no API call needed
-      setSites([]);
-      return;
-    }
-
     try {
       const data = await fetchSites();
       setSites(data);
     } catch (err) {
-      // Silent failure
       setSites([]);
     }
   }
@@ -111,58 +102,6 @@ export function NewScanDialog({ onScanCreated, onScanAdded, onScanStarted, defau
     setLoading(true);
     setError("");
 
-    if (isDemo) {
-      // Demo mode - create a mock scan and add it to the list
-      const mockScan: Scan = {
-        id: `demo-${Date.now()}`,
-        site_id: "demo-site",
-        company_id: "demo-company",
-        started_by: null,
-        url: cleanUrl,
-        scanners: selectedScanners,
-        status: "queued",
-        progress: 0,
-        current_scanner: null,
-        results: [],
-        analysis: null,
-        total_findings: 0,
-        severity_counts: {
-          critical: 0,
-          high: 0,
-          medium: 0,
-          low: 0,
-          info: 0,
-        },
-        grade: null,
-        score: null,
-        report_url: null,
-        error: null,
-        duration_seconds: null,
-        created_at: new Date().toISOString(),
-        completed_at: null,
-        updated_at: new Date().toISOString(),
-      };
-
-      // Reset and close
-      setOpen(false);
-      setUrl("");
-      setClientName("");
-      setSelectedScanners(["observatory", "ssl", "crawler"]);
-      setLoading(false);
-
-      // Show toast notification
-      const hostname = new URL(cleanUrl).hostname;
-      toast.info(`Demo Mode - Scan queued for ${hostname}`, {
-        description: "This is a demo scan. Connect backend for real scanning.",
-      });
-
-      // Notify parent components
-      onScanAdded?.(mockScan);
-      onScanCreated?.();
-      return;
-    }
-
-    // Live mode
     try {
       // Find or create site for this URL
       let site = sites.find((s) => s.url === cleanUrl);
