@@ -20,11 +20,12 @@ export async function GET() {
       total_scans: scans.length,
       total_clients: sites.length,
     });
-  } catch (error) {
+  } catch (error: any) {
     console.error("Health check error:", error);
     return NextResponse.json(
       {
         status: "error",
+        error: error?.message || "Health check failed",
         scanners: {
           observatory: true,
           ssl: true,

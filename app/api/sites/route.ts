@@ -9,10 +9,10 @@ export async function GET(request: NextRequest) {
 
     const sites = await getSites(companyId);
     return NextResponse.json(sites);
-  } catch (error) {
+  } catch (error: any) {
     console.error("Error fetching sites:", error);
     return NextResponse.json(
-      { error: "Failed to fetch sites" },
+      { error: error?.message || "Failed to fetch sites" },
       { status: 500 }
     );
   }
@@ -45,10 +45,10 @@ export async function POST(request: NextRequest) {
     });
 
     return NextResponse.json(site, { status: 201 });
-  } catch (error) {
+  } catch (error: any) {
     console.error("Error creating site:", error);
     return NextResponse.json(
-      { error: "Failed to create site" },
+      { error: error?.message || "Failed to create site" },
       { status: 500 }
     );
   }

@@ -22,10 +22,10 @@ export async function GET(request: NextRequest) {
 
     const scans = await getScans(companyId, siteId, limit);
     return NextResponse.json(scans);
-  } catch (error) {
+  } catch (error: any) {
     console.error("Error fetching scans:", error);
     return NextResponse.json(
-      { error: "Failed to fetch scans" },
+      { error: error?.message || "Failed to fetch scans" },
       { status: 500 }
     );
   }
@@ -82,10 +82,10 @@ export async function POST(request: NextRequest) {
       { id: scan.id, status: "scanning" },
       { status: 201 }
     );
-  } catch (err) {
+  } catch (err: any) {
     console.error("Error creating scan:", err);
     return NextResponse.json(
-      { error: "Failed to create scan" },
+      { error: err?.message || "Failed to create scan" },
       { status: 500 }
     );
   }
