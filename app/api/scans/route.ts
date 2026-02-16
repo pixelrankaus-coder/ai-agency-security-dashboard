@@ -75,14 +75,13 @@ export async function POST(request: NextRequest) {
       duration_seconds: null,
     });
 
-    // Start scanning in the background (fire and forget)
-    runScanInBackground(scan.id, site.url, selectedScanners, skip_ai || false);
+    // Run scan synchronously (required for Vercel serverless)
+    // Frontend shows progress modal, so slow response is acceptable
+    await runScanInBackground(scan.id, site.url, selectedScanners, skip_ai || false);
 
-    // Return immediately
-    return NextResponse.json(
-      { id: scan.id, status: "scanning" },
-      { status: 201 }
-    );
+    // Return scan status
+    const completedScan = await getScan(scan.id);
+    return NextResponse.json(completedScan, { status: 201 });
   } catch (err: any) {
     console.error("Error creating scan:", err);
     return NextResponse.json(
