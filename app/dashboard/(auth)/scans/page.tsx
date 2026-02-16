@@ -38,7 +38,7 @@ import { NewScanDialog } from "@/components/security/new-scan-dialog";
 import { fetchScans, deleteScan } from "@/lib/api";
 import type { Scan } from "@/types";
 import { SCANNER_INFO } from "@/lib/scanner-info";
-import { format } from "date-fns";
+import { formatAustralianDateTime } from "@/lib/utils/date";
 import { MoreVertical, Trash2, AlertTriangle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
@@ -265,6 +265,7 @@ export default function ScansPage() {
                     <TableRow>
                       <TableHead>URL</TableHead>
                       <TableHead>Status</TableHead>
+                      <TableHead>Source</TableHead>
                       <TableHead>Scanners</TableHead>
                       <TableHead>Findings</TableHead>
                       <TableHead>Date</TableHead>
@@ -309,6 +310,18 @@ export default function ScansPage() {
                           </div>
                         </TableCell>
                         <TableCell>
+                          <Badge variant={
+                            scan.scan_source === "plugin" ? "default" :
+                            scan.scan_source === "scheduled" ? "secondary" :
+                            "outline"
+                          }>
+                            {scan.scan_source === "plugin" ? "Plugin" :
+                             scan.scan_source === "scheduled" ? "Scheduled" :
+                             scan.scan_source === "manual" ? "Manual" :
+                             "—"}
+                          </Badge>
+                        </TableCell>
+                        <TableCell>
                           <div className="flex flex-wrap gap-1">
                             {scan.scanners.slice(0, 3).map((scanner) => (
                               <Badge key={scanner} variant="outline">
@@ -330,7 +343,7 @@ export default function ScansPage() {
                           )}
                         </TableCell>
                         <TableCell>
-                          {format(new Date(scan.created_at), "dd MMM yyyy HH:mm")}
+                          {formatAustralianDateTime(scan.created_at)}
                         </TableCell>
                         <TableCell>
                           {duration ? `${duration}s` : "—"}

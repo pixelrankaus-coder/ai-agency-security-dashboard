@@ -161,7 +161,7 @@ export async function getScans(
   let query = supabase
     .from("scans")
     .select(
-      "id, site_id, company_id, url, scanners, status, progress, current_scanner, total_findings, severity_counts, grade, score, error, duration_seconds, created_at, completed_at, started_by"
+      "id, site_id, company_id, scan_source, url, scanners, status, progress, current_scanner, total_findings, severity_counts, grade, score, error, duration_seconds, created_at, completed_at, started_by"
     )
     .order("created_at", { ascending: false })
     .limit(limit);

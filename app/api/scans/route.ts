@@ -58,6 +58,7 @@ export async function POST(request: NextRequest) {
     const scan = await createScan({
       site_id: site.id,
       company_id: site.company_id,
+      scan_source: "manual",
       url: site.url,
       scanners: selectedScanners,
       status: "scanning",

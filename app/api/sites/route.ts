@@ -1,6 +1,7 @@
 // app/api/sites/route.ts
 import { NextRequest, NextResponse } from "next/server";
 import { getSites, createSite, getOrCreateDefaultCompany } from "@/lib/db";
+import { normalizeUrl, addProtocol } from "@/lib/utils/url";
 
 export async function GET(request: NextRequest) {
   try {
@@ -34,8 +35,24 @@ export async function POST(request: NextRequest) {
       finalCompanyId = defaultCompany.id;
     }
 
+    // Normalize URL (strip protocol, www, trailing slashes)
+    const normalizedUrl = normalizeUrl(url);
+
+    // Check for duplicates
+    const existingSites = await getSites(finalCompanyId);
+    const duplicate = existingSites.find(
+      (s) => normalizeUrl(s.url) === normalizedUrl
+    );
+    if (duplicate) {
+      return NextResponse.json(
+        { error: "This site already exists" },
+        { status: 400 }
+      );
+    }
+
+    // Store with protocol added back for scanning
     const site = await createSite({
-      url,
+      url: addProtocol(normalizedUrl),
       name: name || null,
       notes: notes || "",
       company_id: finalCompanyId,

@@ -53,6 +53,7 @@ export interface Scan {
   site_id: string;
   company_id: string;
   started_by: string | null;
+  scan_source: "manual" | "scheduled" | "plugin" | null;
   url: string;
   scanners: string[];
   status: "queued" | "scanning" | "analysing" | "complete" | "error";
